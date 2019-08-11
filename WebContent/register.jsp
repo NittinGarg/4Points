@@ -320,10 +320,14 @@
                             <div class="login">
                                 <div class="login-form-container">
                                     <div class="login-form">
-                                        <form action="#" method="post">
-                                            <input type="text" name="user-name" placeholder="Username">
-                                            <input type="password" name="user-password" placeholder="Password">
-                                            <input name="user-email" placeholder="Email" type="email">
+                                        <form action="register" method="post">
+                                            <input type="text" name="user-name" placeholder="Username"  required>
+                                            <input type="password" name="user-password" placeholder="Password"  required>
+                                            <input type="text" name="firstname" placeholder="Firstname" required>
+                                            <input type="text" name="lastname" placeholder="Lastame" required>
+                                            <input type="number" name="Contact" placeholder="Contact Number" >
+                                            
+                                            <input name="user-email" placeholder="Email" type="email"  required>
                                             <div class="button-box">
                                                 <button type="submit" class="default-btn floatright">Register</button>
                                             </div>

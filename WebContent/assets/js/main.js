@@ -1,8 +1,13 @@
 (function($) {
     "use strict";
-    
-    
-    
+      
+   /* let gasBtn = document.querySelector(".gas");
+    console.log(gasBtn);
+    gasBtn.addEventListener("click",function(){
+    	alert("Hell is Coming");
+    });
+*/    
+
     
     /*--------------------------
     2. Newsletter Popup

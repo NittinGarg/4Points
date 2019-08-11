@@ -11,19 +11,18 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/login")
+@WebServlet("/register")
 
 public class LoginController extends HttpServlet {
 	
 	
 	public  void doMethod(HttpServletRequest req, HttpServletResponse res)throws IOException, ServletException, ClassNotFoundException, SQLException
 	{
-		String username = req.getParameter("uName");
-		String password = req.getParameter("pwd");
-		String cpassword = req.getParameter("cpwd");
-		String fname = req.getParameter("fName");
-		String lname = req.getParameter("LName");
-		String phone = req.getParameter("cphone");
+		String username = req.getParameter("user-name");
+		String password = req.getParameter("user-password");
+		String fname = req.getParameter("firstname");
+		String lname = req.getParameter("lastname");
+		String phone = req.getParameter("Contact");
 
 		Connection  con = DbConnection.dbConnection("mssql");
 		String result = UsersTable.checkuser(username,con);
@@ -31,16 +30,12 @@ public class LoginController extends HttpServlet {
 	//	System.out.println("result"+ result);
 		if(username.equals(result))
 			{
-				res.sendRedirect("Userid.html");
-			}
-		else if (password.equals(cpassword) )
-			{
-				UsersTable.insertRecord(username, cpassword, fname, lname, phone, con);
-				res.sendRedirect("Loggedin.html");
+				res.sendRedirect("eregister.jsp");
 			}
 		else
 			{
-				res.sendRedirect("Password.html");
+			UsersTable.insertRecord(username,password,fname,lname,phone,con);
+				res.sendRedirect("Loggedin.jsp");
 			}
 		}
 		    

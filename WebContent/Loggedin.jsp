@@ -101,7 +101,7 @@
                                         <h3><a href="#"> HANDCRAFTED MUG</a></h3>
                                         <span>1 x $140.00</span>
                                     </div>
-                                    <div class="cart-delete gas">
+                                    <div class="cart-delete">
                                         <a href="#"><i class="ion-ios-trash-outline"></i></a>
                                     </div>
                                 </li>
@@ -109,7 +109,7 @@
                                     <div class="cart-img">
                                         <a href="#"><img src="assets/img/cart/2.jpg" alt=""></a>
                                     </div>
-                                    <div class="cart-title">
+                                    <div class="cart-title gas">
                                         <h3><a href="#"> HANDCRAFTED MUG</a></h3>
                                         <span>1 x $140.00</span>
                                     </div>
@@ -202,7 +202,7 @@
                                     <li><a href="#">Default welcome msg!</a></li>
                                     <li><a href="register.html">register</a></li>
                                     <li><a href="wishlist.html">My Wish List</a></li>
-                                    <li><a href="login.html">Sign In </a></li>
+                                    <li><a href="login.html">Sign Out!!!(<%=request.getParameter("user-name")%>) </a></li>
                                 </ul>
                             </div>
                         </div>

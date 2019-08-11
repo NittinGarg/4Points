@@ -15,17 +15,18 @@ public class LoginConfirm extends HttpServlet{
 
 	public  void doMethod(HttpServletRequest req, HttpServletResponse res)throws IOException, ServletException, ClassNotFoundException, SQLException
 	{
-		String UserName = req.getParameter("uName");
-		String Password = req.getParameter("pwd");
+		String UserName = req.getParameter("user-name");
+		String Password = req.getParameter("user-password");
 		String user = req.getParameter("user");
-		String seller = req.getParameter("seller");
+		String Btn = req.getParameter("checkout");
+//		String seller = req.getParameter("seller");
 		
 		Connection  con = DbConnection.dbConnection("mssql");
 		
-		if(user.equals("user"))
-		{
+//		if(user.equals("user"))
+//		{
 		String result = UsersTable.verifyuser(UserName,Password,con);
-		
+		System.out.println(UserName);
 		if(result=="true")
 		{
 			System.out.println(UserName);
@@ -35,10 +36,13 @@ public class LoginConfirm extends HttpServlet{
 				PrintWriter out = res.getWriter();
 				out.println("ff");
 			}
+			else if(Btn.equals("Login"))
+			{
+				res.sendRedirect("rcheckout.jsp");
+			}
 			else
 			{
-		
-				res.sendRedirect("Loggedin.html");
+				res.sendRedirect("Loggedin.jsp");
 			}
 			
 		}
@@ -46,33 +50,33 @@ public class LoginConfirm extends HttpServlet{
 		{
 			res.sendRedirect("RLogin.html");
 		}
-		}
+	//	}
 		
-		else {
-			String result1 = UsersTable.verifySuser(UserName,Password,con);
-			
-			if(result1=="true")
-			{
-				System.out.println(UserName);
-			
-				if(UserName.equals("Admin"))
-				{
-					PrintWriter out = res.getWriter();
-					out.println("ff");
-				}
-				else
-				{
-			
-					res.sendRedirect("Loggedin.html");
-				}
-				
-			}
-			else
-			{
-				res.sendRedirect("RLogin.html");
-			}
-			
-		}
+//		else {
+//			String result1 = UsersTable.verifySuser(UserName,Password,con);
+//			
+//			if(result1=="true")
+//			{
+//				System.out.println(UserName);
+//			
+//				if(UserName.equals("Admin"))
+//				{
+//					PrintWriter out = res.getWriter();
+//					out.println("ff");
+//				}
+//				else
+//				{
+//			
+//					res.sendRedirect("Loggedin.html");
+//				}
+//				
+//			}
+//			else
+//			{
+//				res.sendRedirect("RLogin.html");
+//			}
+//			
+//		}
 		
 		
 	}
