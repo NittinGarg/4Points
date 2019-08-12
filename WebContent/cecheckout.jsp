@@ -318,7 +318,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="coupon-accordion">
-                               
+                                
                                 <!-- ACCORDION START -->
                                 <h3>Have a coupon? <span id="showcoupon">Click here to enter your code</span></h3>
                                 <div id="checkout_coupon" class="coupon-checkout-content">
@@ -327,8 +327,11 @@
                                             <p class="checkout-coupon">
                                                 <input type="text" name="couponcode" placeholder="Coupon code" />
                                                 <input type="submit" value="Apply Coupon" />
+                                                
                                             </p>
+                                            
                                         </form>
+                                        <p>Try Again!!!</p>
                                     </div>
                                 </div>
                                 <!-- ACCORDION END -->						

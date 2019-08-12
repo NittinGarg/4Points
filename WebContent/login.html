@@ -189,7 +189,7 @@
                                     <div class="cart-img">
                                         <a href="#"><img src="assets/img/cart/1.jpg" alt=""></a>
                                     </div>
-                                    <div class="cart-title">
+                                    <div class="cart-title gas">
                                         <h3><a href="#"> HANDCRAFTED MUG</a></h3>
                                         <span>1 x $140.00</span>
                                     </div>
@@ -320,7 +320,7 @@
                             <div class="login">
                                 <div class="login-form-container">
                                     <div class="login-form">
-                                        <form action="#" method="post">
+                                        <form action="Logging" method="post">
                                             <input type="text" name="user-name" placeholder="Username">
                                             <input type="password" name="user-password" placeholder="Password">
                                             <div class="button-box">
@@ -329,7 +329,7 @@
                                                     <label>Remember me</label>
                                                     <a href="#">Forgot Password?</a>
                                                 </div>
-                                                <button type="submit" class="default-btn floatright">Login</button>
+                                                <button type="submit" name="user" class="default-btn floatright">Login</button>
                                             </div>
                                         </form>
                                     </div>
@@ -425,3 +425,4 @@
         <script src="assets/js/main.js"></script>
     </body>
 </html>
+

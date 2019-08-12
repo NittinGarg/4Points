@@ -1,1 +1,1 @@
-alert("User Already Existsnt !!!");
+alert("User Already Exists !!!");
