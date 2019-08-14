@@ -321,7 +321,7 @@
                     <div class="row">
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <h1 class="cart-heading">Product</h1>
-                            <form action="#">
+                            <form action="removeproduct">
                                 <div class="table-content table-responsive">
                                     <table>
                                         <thead>
@@ -334,22 +334,126 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                        <%String name=%><%=request.getParameter("category1") %>
-                                        <%String category = "a";
+                                        
+										
+                                        <%String name= (String)request.getAttribute("category1");
                                         //(String)request.getParameter("category1");
+ 										String category2 = name;
                                         System.out.println(request.getParameter("category1"));
                                         Connection  con = DbConnection1.dbConnection("mssql");
                                         PreparedStatement stmt  =null;
 										ResultSet rslt = null;
-									    if(category=="electronics")
+									     if(name.equals("electronics"))
                                         {
                                         	try {
 												stmt =con.prepareStatement("select * from electronics");
 												rslt = stmt.executeQuery();
 												if(rslt.next()){}
+											//	int rproduct = 1;
+												do{%><tr>
+                                                <td class="product-remove"><button type="submit" name="rproduct" value="<%=rslt.getString(1)%>" class="default-btn floatright">Remove</button>
+                                                <input type="hidden" name="category1" value="category2">
+</td>
+                                                
+                                                <td class="product-name"><%=rslt.getString(1)%></td>
+                                                
+                                                <td class="product-quantity">
+                                                    <input value="<%=rslt.getString(2)%>" type="number">
+                                                </td>
+                                                <td class="product-price"><span class="amount"><%=rslt.getString(3) %></span></td>
+           
+                                                
+                                            </tr><%}while(rslt.next());
+											} catch (SQLException e) {
+											// TODO Auto-generated catch block
+											e.printStackTrace();
+											}
+										finally{
+		
+											try{
+												stmt.close();
+												}
+											catch(SQLException e)
+											{
+												e.printStackTrace();
+											}
+											}
+                                        }
+                                        else if(name.equals("clothes"))
+                                        {
+                                        	try {
+												stmt =con.prepareStatement("select * from clothes");
+												rslt = stmt.executeQuery();
+												if(rslt.next()){}
 												
 												do{%><tr>
-                                                <td class="product-remove"><a href="#"><i class="ion-android-close>"></i></a></td>
+                                                <td class="product-remove"><a href="#"><i class="ion-android-close"></i></a></td>
+                                                
+                                                <td class="product-name"><%=rslt.getString(1)%></td>
+                                                
+                                                <td class="product-quantity">
+                                                    <input value="<%=rslt.getString(2)%>" type="number">
+                                                </td>
+                                                <td class="product-price"><span class="amount"><%=rslt.getString(3) %></span></td>
+                                                
+                                            </tr><%}while(rslt.next());
+											} catch (SQLException e) {
+											// TODO Auto-generated catch block
+											e.printStackTrace();
+											}
+										finally{
+		
+											try{
+												stmt.close();
+												}
+											catch(SQLException e)
+											{
+												e.printStackTrace();
+											}
+											}
+                                        }
+                                        else if(name.equals("furniture"))
+                                        {
+                                        	try {
+												stmt =con.prepareStatement("select * from furtinure");
+												rslt = stmt.executeQuery();
+												if(rslt.next()){}
+												
+												do{%><tr>
+                                                <td class="product-remove"><a href="#"><i class="ion-android-close"></i></a></td>
+                                                
+                                                <td class="product-name"><%=rslt.getString(1)%></td>
+                                                
+                                                <td class="product-quantity">
+                                                    <input value="<%=rslt.getString(2)%>" type="number">
+                                                </td>
+                                                <td class="product-price"><span class="amount"><%=rslt.getString(3) %></span></td>
+                                                
+                                            </tr><%}while(rslt.next());
+											} catch (SQLException e) {
+											// TODO Auto-generated catch block
+											e.printStackTrace();
+											}
+										finally{
+		
+											try{
+												stmt.close();
+												}
+											catch(SQLException e)
+											{
+												e.printStackTrace();
+											}
+											}
+                                        }
+                                        else if(name.equals("footwear"))
+                                        {
+                                        	try {
+												stmt =con.prepareStatement("select * from footwear");
+												rslt = stmt.executeQuery();
+												if(rslt.next()){}
+												
+												do{%><tr>
+                                                <td class="product-remove"><a href="#"><i class="ion-android-close"></i></a></td>
                                                 
                                                 <td class="product-name"><%=rslt.getString(1)%></td>
                                                 
@@ -374,6 +478,7 @@
 											}
 											}
                                         }%>
+                                        
                                             <tr>
                                                 <td class="product-remove"><a href="#"><i class="ion-android-close"></i></a></td>
                                                 

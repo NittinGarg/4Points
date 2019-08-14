@@ -322,7 +322,7 @@
                             <div class="login">
                                 <div class="login-form-container">
                                     <div class="login-form">
-                                       <form action="Addproduct1.jsp">
+                                      <form action="category">
                                         <label>Category <span class="required">*</span></label>
 										<select name="category1">                                  
                                      <%   Connection  con = DbConnection1.dbConnection("mssql");
@@ -336,7 +336,7 @@
 													//System.out.println(rslt.getString(1));
 													do
 													{%>
-														<option value="<%=rslt.getString(1) %>>"><%=rslt.getString(1)%> </option>
+														<option value="<%=rslt.getString(1) %>"><%=rslt.getString(1)%> </option>
 														<%
 														//session.setAttribute("category",category);
 														num+=1; %>
@@ -357,19 +357,16 @@
 												}
 
 		
-                                              %>        
+                                              %>       
+                                               
 											 </select>
                                             <div class="button-box">
+                                                <button type="submit" name="Add1" value="Update" class="default-btn floatright">Update</button>
+                                                <button type="submit" name="Add1" value="Add"  class="default-btn floatright">Add Product</button>
                                                 
-                                                <button type="submit" name="Add" class="default-btn floatright">Add Product</button>
                                                </div>
+                                    	</div>
                                     	</form>
-                                    	<form action="category">
-                                    		<div class="button-box">
-                                    			<button type="submit" name="Update" class="default-btn floatright">Update</button>
-                                    		</div>
-                                    	</form>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -451,8 +448,9 @@
             // initialise
             headroom.init(); 
         </script>
+		
         <script src="assets/js/main.js"></script>
-        <script src="assets/js/product_added.js"></script>
+        <script src="assets/js/product_added.js"></script>	
     </body>
 </html>
 

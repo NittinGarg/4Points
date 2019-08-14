@@ -9,16 +9,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/addproduct")
+@WebServlet("/removeproduct")
 
-public class productadd extends HttpServlet{
+public class productremove extends HttpServlet{
 
 	public  void doMethod(HttpServletRequest req, HttpServletResponse res)throws IOException, ServletException, ClassNotFoundException, SQLException
 	{
-		String pname = req.getParameter("name");
-		String pquantity = req.getParameter("quantity");
-		String pprice = req.getParameter("price");
-		String category = req.getParameter("product");
+		
+		String category = req.getParameter("category1");
+		String pname = req.getParameter("rproduct");
 		System.out.println(category);
 	//	String Btn = req.getParameter("checkout");
 //		String seller = req.getParameter("seller");
@@ -27,26 +26,26 @@ public class productadd extends HttpServlet{
 		
 		if(category.equals("electronics"))
 		{
-			UsersTable.insertelectronics(pname,pquantity,pprice,con);
-			res.sendRedirect("SelectCategory1.jsp");
+			UsersTable.deleteelectronics(pname,con);
+			res.sendRedirect("Productupdate1.jsp");
 		}	
 		
 		else if(category.equals("clothes"))
 		{
-			UsersTable.insertclothes(pname,pquantity,pprice,con);
-			res.sendRedirect("SelectCategory1.jsp");
+			UsersTable.deleteclothes(pname,con);
+			res.sendRedirect("Productupdate1.jsp");
 		}
 		
 		else if(category.equals("footwear"))
 		{
-			UsersTable.insertfootwear(pname,pquantity,pprice,con);
-			res.sendRedirect("SelectCategory1.jsp");
+			UsersTable.deletefootwear(pname,con);
+			res.sendRedirect("Productupdate1.jsp");
 		}
 		
 		else if(category.equals("furniture"))
 		{
-			UsersTable.insertfurniture(pname,pquantity,pprice,con);
-			res.sendRedirect("SelectCategory1.jsp");
+			UsersTable.deletefurniture(pname,con);
+			res.sendRedirect("Productupdate1.jsp");
 		}
 	}
 	

@@ -1,6 +1,7 @@
-<!doctype html>
+
 <%@ page import="java.sql.*,java.*"%>
 <%@ page import="asd.DbConnection1"%>
+<!doctype html>
 <html class="no-js" lang="">
     <head>
         <meta charset="utf-8">
@@ -71,7 +72,7 @@
                                         <ul>
                                             <li><a href="#">home</a></li>
                                             <li><a href="about-us.html">about us</a></li>
-                                            <li><a href="shop-grid-view-5-col.jsp">shop</a></li>
+                                            <li><a href="shop-grid-view-5-col.html">shop</a></li>
                                             <li><a href="#">pages</a>
                                                 <ul class="dropdown">
                                                     <li><a href="about-us.html">about us</a></li>
@@ -191,11 +192,11 @@
                                     <div class="cart-img">
                                         <a href="#"><img src="assets/img/cart/1.jpg" alt=""></a>
                                     </div>
-                                    <div class="cart-title gas">
+                                    <div class="cart-title">
                                         <h3><a href="#"> HANDCRAFTED MUG</a></h3>
                                         <span>1 x $140.00</span>
                                     </div>
-                                    <div class="cart-delete">
+                                    <div class="cart-delete gas">
                                         <a href="#"><i class="ion-ios-trash-outline"></i></a>
                                     </div>
                                 </li>
@@ -306,48 +307,197 @@
             <div class="breadcrumb-area pt-205 pb-210" style="background-image: url(assets/img/bg/breadcrumb.jpg)">
                 <div class="container">
                     <div class="breadcrumb-content">
-                        <h2>login</h2>
+                        <h2>wishlist</h2>
                         <ul>
                             <li><a href="#">home</a></li>
-                            <li> login </li>
+                            <li> wishlist </li>
                         </ul>
                     </div>
                 </div>
             </div>
-          <!-- login-area start -->
-            <div class="register-area ptb-100">
+            <!-- shopping-cart-area start -->
+            <div class="cart-main-area pt-95 pb-100">
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-12 col-12 col-lg-6 col-xl-6 ml-auto mr-auto">
-                            <div class="login">
-                                <div class="login-form-container">
-                                    <div class="login-form">
-                                        <form action="addproduct" method="post">
-                                        <label>Name<span class="required">*</span></label>
-
-											 <input type="text" name="name" placeholder="">
-											 <label>Quantity<span class="required">*</span></label>
-
-											 <input type="number" name="quantity" placeholder="">
-											 <label>Price<span class="required">*</span></label>
-
-											 <input type="number" name="price" placeholder="">
-                                        
-                                		
-                                                                                	
-                                            <div class="button-box">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <h1 class="cart-heading">Product</h1>
+                            <form action="#">
+                                <div class="table-content table-responsive">
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th class="product-remove">remove</th>
+                                                <th class="product-name">Name</th>
+                                                <th class="product-quantity">Quantity</th>
+                                                <th class="product-price">Price</th>
                                                 
-                                                <button type="submit" name="product" value="<%=request.getParameter("category1")%>" class="default-btn floatright">Select</button>
-                                            </div>
-                                        </form>
-                                    </div>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        <%String name= (String)request.getAttribute("category1");
+                                        //(String)request.getParameter("category1");
+                                        System.out.println(request.getParameter("category1"));
+                                        Connection  con = DbConnection1.dbConnection("mssql");
+                                        PreparedStatement stmt  =null;
+										ResultSet rslt = null;
+									    if(name.equals("electronics"))
+                                        {
+                                        	try {
+												stmt =con.prepareStatement("select * from electronics");
+												rslt = stmt.executeQuery();
+												if(rslt.next()){}
+												
+												do{%><tr>
+                                                <td class="product-remove"><a href="#"><i class="ion-android-close"></i></a></td>
+                                                
+                                                <td class="product-name"><%=rslt.getString(1)%></td>
+                                                
+                                                <td class="product-quantity">
+                                                    <input value="<%=rslt.getString(2)%>" type="number">
+                                                </td>
+                                                <td class="product-price"><span class="amount"><%=rslt.getString(3) %></span></td>
+           
+                                                
+                                            </tr><%}while(rslt.next());
+											} catch (SQLException e) {
+											// TODO Auto-generated catch block
+											e.printStackTrace();
+											}
+										finally{
+		
+											try{
+												stmt.close();
+												}
+											catch(SQLException e)
+											{
+												e.printStackTrace();
+											}
+											}
+                                        }
+                                        else if(name.equals("clothes"))
+                                        {
+                                        	try {
+												stmt =con.prepareStatement("select * from clothes");
+												rslt = stmt.executeQuery();
+												if(rslt.next()){}
+												
+												do{%><tr>
+                                                <td class="product-remove"><a href="#"><i class="ion-android-close"></i></a></td>
+                                                
+                                                <td class="product-name"><%=rslt.getString(1)%></td>
+                                                
+                                                <td class="product-quantity">
+                                                    <input value="<%=rslt.getString(2)%>" type="number">
+                                                </td>
+                                                <td class="product-price"><span class="amount"><%=rslt.getString(3) %></span></td>
+                                                
+                                            </tr><%}while(rslt.next());
+											} catch (SQLException e) {
+											// TODO Auto-generated catch block
+											e.printStackTrace();
+											}
+										finally{
+		
+											try{
+												stmt.close();
+												}
+											catch(SQLException e)
+											{
+												e.printStackTrace();
+											}
+											}
+                                        }
+                                        else if(name.equals("furniture"))
+                                        {
+                                        	try {
+												stmt =con.prepareStatement("select * from furtinure");
+												rslt = stmt.executeQuery();
+												if(rslt.next()){}
+												
+												do{%><tr>
+                                                <td class="product-remove"><a href="#"><i class="ion-android-close"></i></a></td>
+                                                
+                                                <td class="product-name"><%=rslt.getString(1)%></td>
+                                                
+                                                <td class="product-quantity">
+                                                    <input value="<%=rslt.getString(2)%>" type="number">
+                                                </td>
+                                                <td class="product-price"><span class="amount"><%=rslt.getString(3) %></span></td>
+                                                
+                                            </tr><%}while(rslt.next());
+											} catch (SQLException e) {
+											// TODO Auto-generated catch block
+											e.printStackTrace();
+											}
+										finally{
+		
+											try{
+												stmt.close();
+												}
+											catch(SQLException e)
+											{
+												e.printStackTrace();
+											}
+											}
+                                        }
+                                        else if(name.equals("footwear"))
+                                        {
+                                        	try {
+												stmt =con.prepareStatement("select * from footwear");
+												rslt = stmt.executeQuery();
+												if(rslt.next()){}
+												
+												do{%><tr>
+                                                <td class="product-remove"><a href="#"><i class="ion-android-close"></i></a></td>
+                                                
+                                                <td class="product-name"><%=rslt.getString(1)%></td>
+                                                
+                                                <td class="product-quantity">
+                                                    <input value="<%=rslt.getString(2)%>" type="number">
+                                                </td>
+                                                <td class="product-price"><span class="amount"><%=rslt.getString(3) %></span></td>
+                                                
+                                            </tr><%}while(rslt.next());
+											} catch (SQLException e) {
+											// TODO Auto-generated catch block
+											e.printStackTrace();
+											}
+										finally{
+		
+											try{
+												stmt.close();
+												}
+											catch(SQLException e)
+											{
+												e.printStackTrace();
+											}
+											}
+                                        }%>
+                                            <tr>
+                                                <td class="product-remove"><a href="#"><i class="ion-android-close"></i></a></td>
+                                                
+                                                <td class="product-name"><a href="#">Wooden Furniture </a></td>
+                                                
+                                                <td class="product-quantity">
+                                                    <input value="1" type="number">
+                                                </td>
+                                                <td class="product-price"><span class="amount">$165.00</span></td>
+                                                
+                                            </tr>
+                                        </tbody>
+                                        
+                                    </table>
                                 </div>
-                            </div>
+                            </form>
+                            <div class="button-box">
+                                                
+                                                <button type="submit" name="user" class="default-btn floatright">Update</button>
+                                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- login-area end -->
+            <!-- shopping-cart-area end -->
             <footer class="footer-area gray-bg pt-100 pb-95">
                 <div class="container">
                     <div class="row">
@@ -400,7 +550,11 @@
                 </div>
             </footer>
         </div>
-
+		
+		
+		
+		
+		
 		<!-- all js here -->
         <script src="assets/js/vendor/jquery-1.12.0.min.js"></script>
         <script src="assets/js/popper.js"></script>
@@ -425,4 +579,3 @@
         <script src="assets/js/main.js"></script>
     </body>
 </html>
-

@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.websocket.Session;
 
 @WebServlet("/category")
@@ -20,16 +21,19 @@ public class Category extends HttpServlet{
 		String Pbtn = req.getParameter("Add1");
 		if(Pbtn.equals("Add"))
 		{
-			Session.setAttribute("category",category);
-	//		response.sendRedirect("Jsp2.jsp");
-			res.sendRedirect("Addproduct1.jsp");
+			
+			req.setAttribute("category1", category);
+			req.getRequestDispatcher("Addproduct1.jsp").forward(req, res);
+			//res.sendRedirect("Addproduct1.jsp");
 			
 		}
 		else
 		{
-			res.sendRedirect("Productupdate.jsp");
+			req.setAttribute("category1", category);
+			req.getRequestDispatcher("Productupdate.jsp").forward(req, res);
+	//		res.sendRedirect("Productupdate.jsp");
 		}
-		res.sendRedirect("Productupdate.jsp");
+	//	res.sendRedirect("Productupdate.jsp");
 	}
 	
 	public void doGet(HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException 

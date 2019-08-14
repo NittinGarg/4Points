@@ -107,7 +107,7 @@ public class UsersTable {
 		PreparedStatement stmt  =null;
 
 		try {
-			stmt =conn.prepareStatement("insert into electronics (name, quantity, price)values (?,?,?)");
+			stmt =conn.prepareStatement("insert into furniture (name, quantity, price)values (?,?,?)");
 			
 			stmt.setString(1, name);
 			stmt.setString(2, quantity);
@@ -139,7 +139,7 @@ public class UsersTable {
 		PreparedStatement stmt  =null;
 
 		try {
-			stmt =conn.prepareStatement("insert into electronics (name, quantity, price)values (?,?,?)");
+			stmt =conn.prepareStatement("insert into footwear (name, quantity, price)values (?,?,?)");
 			
 			stmt.setString(1, name);
 			stmt.setString(2, quantity);
@@ -171,11 +171,130 @@ public class UsersTable {
 		PreparedStatement stmt  =null;
 
 		try {
-			stmt =conn.prepareStatement("insert into electronics (name, quantity, price)values (?,?,?)");
+			stmt =conn.prepareStatement("insert into clothes (name, quantity, price)values (?,?,?)");
 			
 			stmt.setString(1, name);
 			stmt.setString(2, quantity);
 			stmt.setString(3, price);
+			
+			stmt.executeUpdate();
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		finally{
+			
+			try{
+				stmt.close();
+			}
+			catch(SQLException e)
+			{
+				e.printStackTrace();
+			}
+		}
+		
+		
+		
+	}
+	
+	
+	public static void deletefurniture(String name, Connection conn)	{
+		PreparedStatement stmt  =null;
+
+		try {
+			stmt =conn.prepareStatement("delete from furniture where name=?");
+			
+			stmt.setString(1, name);
+			
+			stmt.executeUpdate();
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		finally{
+			
+			try{
+				stmt.close();
+			}
+			catch(SQLException e)
+			{
+				e.printStackTrace();
+			}
+		}
+		
+		
+		
+	}
+	
+	
+	public static void deletefootwear(String name, Connection conn)	{
+		PreparedStatement stmt  =null;
+
+		try {
+			stmt =conn.prepareStatement("delete from footwear where name=?");
+			
+			stmt.setString(1, name);
+			
+			stmt.executeUpdate();
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		finally{
+			
+			try{
+				stmt.close();
+			}
+			catch(SQLException e)
+			{
+				e.printStackTrace();
+			}
+		}
+		
+		
+		
+	}
+	
+	
+	public static void deleteelectronics(String name,Connection conn)	{
+		PreparedStatement stmt  =null;
+
+		try {
+			stmt =conn.prepareStatement("delete from electronics where name=?");
+			
+			stmt.setString(1, name);
+			stmt.executeUpdate();
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		finally{
+			
+			try{
+				stmt.close();
+			}
+			catch(SQLException e)
+			{
+				e.printStackTrace();
+			}
+		}
+		
+		
+		
+	}
+	
+	
+	public static void deleteclothes(String name, Connection conn)	{
+		PreparedStatement stmt  =null;
+
+		try {
+			stmt =conn.prepareStatement("delete from clothes where name=?");
+			
+			stmt.setString(1, name);
 			
 			stmt.executeUpdate();
 
