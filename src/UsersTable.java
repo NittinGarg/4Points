@@ -72,6 +72,133 @@ public class UsersTable {
 		
 	}
 	
+	public static void insertelectronics(String name, String quantity, String price, Connection conn)	{
+		PreparedStatement stmt  =null;
+
+		try {
+			stmt =conn.prepareStatement("insert into electronics (name, quantity, price)values (?,?,?)");
+			
+			stmt.setString(1, name);
+			stmt.setString(2, quantity);
+			stmt.setString(3, price);
+			
+			stmt.executeUpdate();
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		finally{
+			
+			try{
+				stmt.close();
+			}
+			catch(SQLException e)
+			{
+				e.printStackTrace();
+			}
+		}
+		
+		
+		
+	}
+	
+	public static void insertfurniture(String name, String quantity, String price, Connection conn)	{
+		PreparedStatement stmt  =null;
+
+		try {
+			stmt =conn.prepareStatement("insert into electronics (name, quantity, price)values (?,?,?)");
+			
+			stmt.setString(1, name);
+			stmt.setString(2, quantity);
+			stmt.setString(3, price);
+			
+			stmt.executeUpdate();
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		finally{
+			
+			try{
+				stmt.close();
+			}
+			catch(SQLException e)
+			{
+				e.printStackTrace();
+			}
+		}
+		
+		
+		
+	}
+	
+	
+	public static void insertfootwear(String name, String quantity, String price, Connection conn)	{
+		PreparedStatement stmt  =null;
+
+		try {
+			stmt =conn.prepareStatement("insert into electronics (name, quantity, price)values (?,?,?)");
+			
+			stmt.setString(1, name);
+			stmt.setString(2, quantity);
+			stmt.setString(3, price);
+			
+			stmt.executeUpdate();
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		finally{
+			
+			try{
+				stmt.close();
+			}
+			catch(SQLException e)
+			{
+				e.printStackTrace();
+			}
+		}
+		
+		
+		
+	}
+	
+	
+	public static void insertclothes(String name, String quantity, String price, Connection conn)	{
+		PreparedStatement stmt  =null;
+
+		try {
+			stmt =conn.prepareStatement("insert into electronics (name, quantity, price)values (?,?,?)");
+			
+			stmt.setString(1, name);
+			stmt.setString(2, quantity);
+			stmt.setString(3, price);
+			
+			stmt.executeUpdate();
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		finally{
+			
+			try{
+				stmt.close();
+			}
+			catch(SQLException e)
+			{
+				e.printStackTrace();
+			}
+		}
+		
+		
+		
+	}
+	
+	
 	
 	public static String verifyuser(String username, String password, Connection conn)	{
 		PreparedStatement stmt  =null;

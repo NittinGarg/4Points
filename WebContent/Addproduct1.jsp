@@ -1,4 +1,6 @@
 <!doctype html>
+<%@ page import="java.sql.*,java.*"%>
+<%@ page import="asd.DbConnection1"%>
 <html class="no-js" lang="">
     <head>
         <meta charset="utf-8">
@@ -320,16 +322,22 @@
                             <div class="login">
                                 <div class="login-form-container">
                                     <div class="login-form">
-                                        <form action="Logging" method="post">
-                                            <input type="text" name="user-name" placeholder="Username">
-                                            <input type="password" name="user-password" placeholder="Password">
+                                        <form action="addproduct" method="post">
+                                        <label>Name<span class="required">*</span></label>
+
+											 <input type="text" name="name" placeholder="">
+											 <label>Quantity<span class="required">*</span></label>
+
+											 <input type="number" name="quantity" placeholder="">
+											 <label>Price<span class="required">*</span></label>
+
+											 <input type="number" name="price" placeholder="">
+                                        
+                                		
+                                                                                	
                                             <div class="button-box">
-                                                <div class="login-toggle-btn">
-                                                    <input type="checkbox">
-                                                    <label>Remember me</label>
-                                                    <a href="#">Forgot Password?</a>
-                                                </div>
-                                                <button type="submit" name="user" class="default-btn floatright">Login</button>
+                                                
+                                                <button type="submit" name="product" value="<%=request.getParameter("category1")%>>" class="default-btn floatright">Select</button>
                                             </div>
                                         </form>
                                     </div>
@@ -392,15 +400,7 @@
                 </div>
             </footer>
         </div>
-		
-		
-		
-		
-		
-		
-		
-		
-		
+
 		<!-- all js here -->
         <script src="assets/js/vendor/jquery-1.12.0.min.js"></script>
         <script src="assets/js/popper.js"></script>

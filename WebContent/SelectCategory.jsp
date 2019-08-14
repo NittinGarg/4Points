@@ -1,4 +1,6 @@
 <!doctype html>
+<%@ page import="java.sql.*,java.*"%>
+<%@ page import="asd.DbConnection1"%>
 <html class="no-js" lang="">
     <head>
         <meta charset="utf-8">
@@ -320,19 +322,49 @@
                             <div class="login">
                                 <div class="login-form-container">
                                     <div class="login-form">
-                                        <form action="Logging" method="post">
-                                            <input type="text" name="user-name" placeholder="Username">
-                                            <input type="password" name="user-password" placeholder="Password">
+                                      
+                                        <label>Category <span class="required">*</span></label>
+										<select name="category1">                                  
+                                     <%   Connection  con = DbConnection1.dbConnection("mssql");
+											PreparedStatement stmt  =null;
+											ResultSet rslt = null;
+											try {
+													stmt =con.prepareStatement("select * from category");
+													rslt = stmt.executeQuery();
+													if(rslt.next()){}
+													int num = 1;
+													//System.out.println(rslt.getString(1));
+													do
+													{%>
+														<option value="<%=rslt.getString(1) %>>"><%=rslt.getString(1)%> </option>
+														<%
+														//session.setAttribute("category",category);
+														num+=1; %>
+													<%}while(rslt.next());
+												} catch (SQLException e) {
+												// TODO Auto-generated catch block
+												e.printStackTrace();
+												}
+											finally{
+			
+												try{
+													stmt.close();
+													}
+												catch(SQLException e)
+												{
+													e.printStackTrace();
+												}
+												}
+
+		
+                                              %>        
+											 </select>
                                             <div class="button-box">
-                                                <div class="login-toggle-btn">
-                                                    <input type="checkbox">
-                                                    <label>Remember me</label>
-                                                    <a href="#">Forgot Password?</a>
-                                                </div>
-                                                <button type="submit" name="user" class="default-btn floatright">Login</button>
-                                            </div>
-                                        </form>
-                                    </div>
+                                                <button type="submit" name="Update" onclick="location.href = 'Productupdate.jsp';" class="default-btn floatright">Update</button>
+                                                <button type="submit" name="Add" onclick="location.href = 'Addproduct1.jsp';"   class="default-btn floatright">Add Product</button>
+                                                
+                                               </div>
+                                    	</div>
                                 </div>
                             </div>
                         </div>
@@ -392,15 +424,7 @@
                 </div>
             </footer>
         </div>
-		
-		
-		
-		
-		
-		
-		
-		
-		
+
 		<!-- all js here -->
         <script src="assets/js/vendor/jquery-1.12.0.min.js"></script>
         <script src="assets/js/popper.js"></script>

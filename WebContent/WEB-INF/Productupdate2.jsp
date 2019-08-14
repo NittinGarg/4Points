@@ -69,7 +69,7 @@
                                         <ul>
                                             <li><a href="#">home</a></li>
                                             <li><a href="about-us.html">about us</a></li>
-                                            <li><a href="shop-grid-view-5-col.jsp">shop</a></li>
+                                            <li><a href="shop-grid-view-5-col.html">shop</a></li>
                                             <li><a href="#">pages</a>
                                                 <ul class="dropdown">
                                                     <li><a href="about-us.html">about us</a></li>
@@ -189,11 +189,11 @@
                                     <div class="cart-img">
                                         <a href="#"><img src="assets/img/cart/1.jpg" alt=""></a>
                                     </div>
-                                    <div class="cart-title gas">
+                                    <div class="cart-title">
                                         <h3><a href="#"> HANDCRAFTED MUG</a></h3>
                                         <span>1 x $140.00</span>
                                     </div>
-                                    <div class="cart-delete">
+                                    <div class="cart-delete gas">
                                         <a href="#"><i class="ion-ios-trash-outline"></i></a>
                                     </div>
                                 </li>
@@ -304,42 +304,52 @@
             <div class="breadcrumb-area pt-205 pb-210" style="background-image: url(assets/img/bg/breadcrumb.jpg)">
                 <div class="container">
                     <div class="breadcrumb-content">
-                        <h2>login</h2>
+                        <h2>wishlist</h2>
                         <ul>
                             <li><a href="#">home</a></li>
-                            <li> login </li>
+                            <li> wishlist </li>
                         </ul>
                     </div>
                 </div>
             </div>
-          <!-- login-area start -->
-            <div class="register-area ptb-100">
+            <!-- shopping-cart-area start -->
+            <div class="cart-main-area pt-95 pb-100">
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-12 col-12 col-lg-6 col-xl-6 ml-auto mr-auto">
-                            <div class="login">
-                                <div class="login-form-container">
-                                    <div class="login-form">
-                                        <form action="Logging" method="post">
-                                            <input type="text" name="user-name" placeholder="Username">
-                                            <input type="password" name="user-password" placeholder="Password">
-                                            <div class="button-box">
-                                                <div class="login-toggle-btn">
-                                                    <input type="checkbox">
-                                                    <label>Remember me</label>
-                                                    <a href="#">Forgot Password?</a>
-                                                </div>
-                                                <button type="submit" name="user" class="default-btn floatright">Login</button>
-                                            </div>
-                                        </form>
-                                    </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <h1 class="cart-heading">Product</h1>
+                            <form action="#">
+                                <div class="table-content table-responsive">
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th class="product-remove">remove</th>
+                                                <th class="product-name">Name</th>
+                                                <th class="product-qantity">Quantity</th>
+                                                <th class="product-price">Price</th>
+                                                
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td class="product-remove"><a href="#"><i class="ion-android-close"></i></a></td>
+                                                
+                                                <td class="product-name"><a href="#">Wooden Furniture </a></td>
+                                                <td class="product-price"><span class="amount">$165.00</span></td>
+                                                <td class="product-quantity">
+                                                    <input value="1" type="number">
+                                                </td>
+                                                
+                                            </tr>
+                                        </tbody>
+                                    </table>
                                 </div>
-                            </div>
+                            </form>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- login-area end -->
+            <!-- shopping-cart-area end -->
             <footer class="footer-area gray-bg pt-100 pb-95">
                 <div class="container">
                     <div class="row">
@@ -397,10 +407,6 @@
 		
 		
 		
-		
-		
-		
-		
 		<!-- all js here -->
         <script src="assets/js/vendor/jquery-1.12.0.min.js"></script>
         <script src="assets/js/popper.js"></script>
@@ -425,4 +431,3 @@
         <script src="assets/js/main.js"></script>
     </body>
 </html>
-

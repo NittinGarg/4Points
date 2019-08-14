@@ -9,76 +9,41 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/Logging")
+@WebServlet("/addproduct")
 
-public class LoginConfirm extends HttpServlet{
+public class productadd extends HttpServlet{
 
 	public  void doMethod(HttpServletRequest req, HttpServletResponse res)throws IOException, ServletException, ClassNotFoundException, SQLException
 	{
-		String UserName = req.getParameter("user-name");
-		String Password = req.getParameter("user-password");
-		String user = req.getParameter("user");
+		String pname = req.getParameter("name");
+		String pquantity = req.getParameter("quantity");
+		String pprice = req.getParameter("price");
+		String category = req.getParameter("product");
 	//	String Btn = req.getParameter("checkout");
 //		String seller = req.getParameter("seller");
 		
 		Connection  con = DbConnection.dbConnection("mssql");
 		
-//		if(user.equals("user"))
-//		{
-		String result = UsersTable.verifyuser(UserName,Password,con);
-		System.out.println(UserName);
-		if(result=="true")
+		if(category.equals("electronics"))
 		{
-			System.out.println(UserName);
-		
-			if(UserName.equals("Admin"))
-			{
-				PrintWriter out = res.getWriter();
-				res.sendRedirect("Admin.jsp");
-			}
-	//		else if(Btn.equals("Login"))
-		//	{
-			//	res.sendRedirect("rcheckout.jsp");
-		//	}
-			else
-			{
-				res.sendRedirect("Loggedin.jsp");
-			}
-			
+			UsersTable.insertelectronics(pname,pquantity,pprice,con);
+			res.sendRedirect("SelectCategory1.jsp");
+		}	
+		else if(category.equals("clothes"))
+		{
+			UsersTable.insertclothes(pname,pquantity,pprice,con);
+			res.sendRedirect("SelectCategory1.jsp");
+		}
+		else if(category.equals("footwear"))
+		{
+			UsersTable.insertfootwear(pname,pquantity,pprice,con);
+			res.sendRedirect("SelectCategory1.jsp");
 		}
 		else
 		{
-			res.sendRedirect("RLogin.html");
+			UsersTable.insertfurniture(pname,pquantity,pprice,con);
+			res.sendRedirect("SelectCategory1.jsp");
 		}
-	//	}
-		
-//		else {
-//			String result1 = UsersTable.verifySuser(UserName,Password,con);
-//			
-//			if(result1=="true")
-//			{
-//				System.out.println(UserName);
-//			
-//				if(UserName.equals("Admin"))
-//				{
-//					PrintWriter out = res.getWriter();
-//					out.println("ff");
-//				}
-//				else
-//				{
-//			
-//					res.sendRedirect("Loggedin.html");
-//				}
-//				
-//			}
-//			else
-//			{
-//				res.sendRedirect("RLogin.html");
-//			}
-//			
-//		}
-		
-		
 	}
 	
 	public void doGet(HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException 

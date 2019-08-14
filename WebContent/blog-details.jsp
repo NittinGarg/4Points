@@ -61,7 +61,7 @@
                         <div class="row no-gutters">
                             <div class="col-lg-3 col-md-6 col-6">
                                 <div class="logo">
-                                    <a href="index.html"><img src="assets/img/logo/logo.png" alt="" /></a>
+                                    <a href="index.html"><img src="<%=request.getContextPath()%>/assets/img/logo/1.png" alt="" /></a>
                                 </div>
                             </div>
                             <div class="col-lg-6 menu-none-block menu-center">
