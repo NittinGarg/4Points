@@ -1,10 +1,12 @@
 <!doctype html>
 <%@ page import="java.*" %>
+<%@ page import="asd.DbConnection1"%>
+<%@ page import="java.sql.*" %>
 <html class="no-js" lang="en">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Furniture - Minimalist eCommerce HTML5 Template</title>
+        <title>4Points - Minimalist eCommerce HTML5 Template</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- Favicon -->
@@ -26,52 +28,46 @@
     <body>
         <!-- header start -->
         <div class="wrapper">
-            <!-- Newsletter Popup Start -->
-            <div class="popup_wrapper hidden-sm hidden-xs">
-                <div class="test">
-                    <span class="popup_off">Close</span>
-                    <div class="subscribe_area text-center">
-                        <h2>Newsletter</h2>
-                        <p>Subscribe to the Neha mailing list to receive updates on new arrivals, special offers and other discount information.</p>
-                        <div id="mc_embed_signup" class="subscribe-bottom">
-                            <form action="http://devitems.us11.list-manage.com/subscribe/post?u=6bbb9b6f5827bd842d9640c82&amp;id=05d85f18ef" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-                                <div id="mc_embed_signup_scroll" class="mc-form">
-                                    <input type="email" value="" name="EMAIL" class="email" placeholder="Enter your email address" required>
-                                    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-                                    <div class="mc-news" aria-hidden="true"><input type="text" name="b_6bbb9b6f5827bd842d9640c82_05d85f18ef" tabindex="-1" value=""></div>
-                                    <div class="clear-2"><input type="submit" value="subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
-                                </div>
-                            </form>
-                        </div>
-                        <div class="subscribe-bottom mt-15">
-                            <input type="checkbox" id="newsletter-permission">
-                            <label for="newsletter-permission">Don't show this popup again</label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Newsletter Popup End -->
+            
             <header>
                 <div class="header-area header-area-padding">
                     <div class="container">
                         <div class="row">
-                            <div class="col-lg-6 col-md-6 col-6">
+                            <div class="col-lg-3 col-md-6 col-6">
                                 <div class="logo">
-                                    <a href="index.html"><img src="assets/img/logo/logo.png" alt="" /></a>
+                                    <a href="index.jsp"><img src="assets/img/logo/logo.png" alt="" /></a>
                                 </div>
                             </div>
-                            <div class="col-lg-6 col-md-6 col-6">
+                            <div class="col-lg-6 menu-none-block menu-center">
+                                <div class="main-menu">
+                                    <nav>
+                                        <ul>
+                                            <li><a href="index.jsp">home</a></li>
+                                            <li><a href="about-us.html">about us</a></li>
+                                            <li><a href="shop-grid-view-5-col.jsp">shop</a></li>
+                                            <li><a href="#">pages</a>
+                                                <ul class="dropdown">
+                                                    <li><a href="about-us.html">about us</a></li>
+                                                    <li><a href="cart.jsp">cart</a></li>
+                                                    <li><a href="checkout.jsp">checkout</a></li>
+                                                    <li><a href="contact.html">contact</a></li>
+                                                    <li><a href="login.jsp">login</a></li>
+                                                    <li><a href="register.jsp">register</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="contact.html">contact</a></li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-6 col-6">
                                 <div class="header-search-cart">
                                     <div class="header-search common-style">
                                         <button class="sidebar-trigger-search">
                                             <span class="ion-ios-search-strong"></span>
                                         </button>
                                     </div>
-                                    <div class="header-cart common-style">
-                                        <button class="sidebar-trigger">
-                                            <span class="ion-bag"></span>
-                                        </button>
-                                    </div>
+                                    
                                     <div class="header-sidebar common-style">
                                         <button class="header-navbar-active">
                                             <span class="ion-navicon"></span>
@@ -84,68 +80,7 @@
                 </div>
             </header>
             <!-- header end --> 
-            <!-- sidebar-cart start -->
-            <div class="sidebar-cart onepage-sidebar-area">
-                <div class="wrap-sidebar">
-                    <div class="sidebar-cart-all">
-                        <div class="sidebar-cart-icon">
-                            <button class="op-sidebar-close"><span class="ion-android-close"></span></button>
-                        </div>
-                        <div class="cart-content">
-                            <h3>Shopping Cart</h3>
-                            <ul>
-                                <li class="single-product-cart">
-                                    <div class="cart-img">
-                                        <a href="#"><img src="assets/img/cart/1.jpg" alt=""></a>
-                                    </div>
-                                    <div class="cart-title">
-                                        <h3><a href="#"> HANDCRAFTED MUG</a></h3>
-                                        <span>1 x $140.00</span>
-                                    </div>
-                                    <div class="cart-delete">
-                                        <a href="#"><i class="ion-ios-trash-outline"></i></a>
-                                    </div>
-                                </li>
-                                <li class="single-product-cart">
-                                    <div class="cart-img">
-                                        <a href="#"><img src="assets/img/cart/2.jpg" alt=""></a>
-                                    </div>
-                                    <div class="cart-title gas">
-                                        <h3><a href="#"> HANDCRAFTED MUG</a></h3>
-                                        <span>1 x $140.00</span>
-                                    </div>
-                                    <div class="cart-delete">
-                                        <a href="#"><i class="ion-ios-trash-outline"></i></a>
-                                    </div>
-                                </li>
-                                <li class="single-product-cart">
-                                    <div class="cart-img">
-                                        <a href="#"><img src="assets/img/cart/3.jpg" alt=""></a>
-                                    </div>
-                                    <div class="cart-title">
-                                        <h3><a href="#"> HANDCRAFTED MUG</a></h3>
-                                        <span>1 x $140.00</span>
-                                    </div>
-                                    <div class="cart-delete">
-                                        <a href="#"><i class="ion-ios-trash-outline"></i></a>
-                                    </div>
-                                </li>
-                                <li class="single-product-cart">
-                                    <div class="cart-total">
-                                        <h4>Total : <span>$ 120</span></h4>
-                                    </div>
-                                </li>
-                                <li class="single-product-cart">
-                                    <div class="cart-checkout-btn">
-                                        <a class="btn-hover cart-btn-style" href="#">view cart</a>
-                                        <a class="no-mrg btn-hover cart-btn-style" href="#">checkout</a>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
+           
             <!-- main-search start -->
             <div class="main-search-active">
                 <div class="sidebar-search-icon">
@@ -168,42 +103,27 @@
                     <div class="sidebar-nav-icon">
                         <button class="op-sidebar-close"><span class="ion-android-close"></span></button>
                     </div>
-                    <div class="cur-lang-acc-all">
-                        <div class="single-currency-language-account">
-                            <div class="cur-lang-acc-title">
-                                <h4>Currency: <span>USD </span></h4>
-                            </div>
-                            <div class="cur-lang-acc-dropdown">
-                                <ul>
-                                    <li><a href="#">EUR  Euro</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="single-currency-language-account">
-                            <div class="cur-lang-acc-title">
-                                <h4>Language: <span><img src="assets/img/icon-img/english.png" alt=""> English </span></h4>
-                            </div>
-                            <div class="cur-lang-acc-dropdown">
-                                <ul>
-                                    <li><a href="#"><img src="assets/img/icon-img/english.png" alt=""> English </a></li>
-                                    <li><a href="#"><img src="assets/img/icon-img/es.png" alt=""> spanish </a></li>
-                                    <li><a href="#"><img src="assets/img/icon-img/fr.png" alt=""> french </a></li>
-                                    <li><a href="#"><img src="assets/img/icon-img/ge.png" alt=""> german </a></li>
-                                    <li><a href="#"><img src="assets/img/icon-img/es.png" alt=""> spanish </a></li>
-                                </ul>
-                            </div>
-                        </div>
+                    <%String name= (String)request.getAttribute("user-name");
+                    session.setAttribute("user-name",name);
+                    System.out.println(name+" Garg");%>
                         <div class="single-currency-language-account">
                             <div class="cur-lang-acc-title">
                                 <h4>My Account:</h4>
                             </div>
                             <div class="cur-lang-acc-dropdown">
                                 <ul>
-                                    <li><a href="#">Compare Products </a></li>
-                                    <li><a href="#">Default welcome msg!</a></li>
-                                    <li><a href="register.html">register</a></li>
-                                    <li><a href="wishlist.html">My Wish List</a></li>
-                                    <li><a href="login.html">Sign Out!!!(<%=request.getParameter("user-name")%>) </a></li>
+                                    <li><a href="quiz.jsp">Quiz </a></li>
+                                    <li><a href="cart.jsp">My Cart</a></li>
+                                   <% if(name==null)
+                                   {%>
+                                   <li><a href="register.jsp">register</a></li>
+                                    <li><a href="login.jsp">Sign In</a></li>
+                                                                     
+                                   
+                                 <%}
+                                   else{%>
+                                     <li><a href="login.jsp">Sign Out!!! <%=request.getAttribute("user-name")%> </a></li>
+                                    <%} %>
                                 </ul>
                             </div>
                         </div>
@@ -215,58 +135,19 @@
                     <div class="single-slider single-slider-hm1 bg-img ptb-260" style="background-image: url(assets/img/slider/1.jpg)">
                         <div class="container">
                             <div class="slider-content slider-content-style-1 slider-animated-1">
-                                <h3 class="animated">New Collection <span>2018.</span></h3>
+                                <h3 class="animated">New Collection <span>2019.</span></h3>
                                 <h2 class="animated">Amazing Product</h2>
-                                <p class="animated">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eius tempor incididunt ut labore et dolore </p>
-                                <a class="btn-hover slider-btn-style animated" href="shop-grid-view-sidebar.html">shop now</a>
+                                <a class="btn-hover slider-btn-style animated" href="shop-grid-view-sidebar.jsp">shop now</a>
                             </div>
                         </div>
                     </div>
-                    <div class="single-slider single-slider-hm1 bg-img slider-content-style-1 ptb-260" style="background-image: url(assets/img/slider/8.jpg)">
-                        <div class="container">
-                            <div class="slider-content slider-content-style-1 slider-animated-2 slider-text-right">
-                                <h3 class="animated">New Fashion <span>2018.</span></h3>
-                                <h2 class="animated">Awesome Product</h2>
-                                <div class="slide-right-pera">
-                                    <p class="animated">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eius tempor incididunt ut labore et dolore </p>
-                                </div>
-                                <a class="btn-hover slider-btn-style animated" href="shop-grid-view-sidebar.html">shop now</a>
-                            </div>
-                        </div>
-                    </div>
+                    
                 </div>
             </div>
             <div class="banner-area pt-100 pb-70">
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-6 col-lg-3 col-12">
-                            <div class="single-banner mb-30">
-                                <a href="shop-grid-view-sidebar.html"><img src="assets/img/banner/1.jpg" alt=""></a>
-                                <div class="banner-content banner-content-position1">
-                                    <h3>morden <span>sofa</span></h3>
-                                    <p>Sale up to <span>30% off</span> all product in the new collection</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="d-sm-none d-lg-block col-lg-6 col-12">
-                            <div class="single-banner mb-30">
-                                <a href="shop-grid-view-sidebar.html"><img src="assets/img/banner/2.jpg" alt=""></a>
-                                <div class="banner-content banner-content-position2">
-                                    <span>Summer Sale</span>
-                                    <h3>morden <span>chair</span></h3>
-                                    <p>Sale up to <span>30% off</span> all product <br>in the new collection</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-lg-3 col-12">
-                            <div class="single-banner mb-30">
-                                <a href="shop-grid-view-sidebar.html"><img src="assets/img/banner/3.jpg" alt=""></a>
-                                <div class="banner-content banner-content-position3">
-                                    <h3>morden <span>chair</span></h3>
-                                    <p>Sale up to <span>30% off</span> all product in the new collection</p>
-                                </div>
-                            </div>
-                        </div>
+                        
                     </div>
                 </div>
             </div>
@@ -278,838 +159,87 @@
                     </div>
                     <div class="product-style">
                         <div class="product-tab-list text-center mb-45 nav product-menu-mrg" role="tablist">
-                            <a class="active" href="#home1" data-toggle="tab" role="tab" aria-selected="true" aria-controls="home1">
-                                <h4>NEW IN </h4>
-                            </a>
-                            <a href="#home2" data-toggle="tab" role="tab" aria-selected="false" aria-controls="home2">
-                                <h4>ON SALE </h4>
-                            </a>
-                            <a href="#home3" data-toggle="tab" role="tab" aria-selected="false" aria-controls="home3">
-                                <h4>FREE SHIPPING</h4>
-                            </a>
-                            <a href="#home4" data-toggle="tab" role="tab" aria-selected="false" aria-controls="home4">
-                                <h4>HIGHEST RATING</h4>
-                            </a>
+                            
                         </div>
+                        
                         <div class="tab-content jump">
                             <div class="tab-pane active show fade" id="home1" role="tabpanel">
                                 <div class="row">
-                                    <div class="product-slider-active owl-carousel">
                                         <div class="col-md-3 col-lg-3 col-sm-4">
-                                            <div class="single-product">
+                                      <%   Connection  con = DbConnection1.dbConnection("mssql");
+                                        PreparedStatement stmt  =null;
+										ResultSet rslt = null;
+										
+										int count = 0;
+									     	try {
+												stmt =con.prepareStatement("select * from electronics");
+												rslt = stmt.executeQuery();
+												while(rslt.next()){
+												String imgname = rslt.getString(1);
+												%>
+												
+												<div class="single-product">
                                                 <div class="product-img">
-                                                    <a href="#"><img src="assets/img/product/1.jpg" alt=""></a>
-                                                    <span>sale</span>
-                                                    <div class="product-action">
-                                                        <a title="Wishlist" class="animate-left" href="#"><i class="ion-ios-heart-outline"></i></a>
-                                                        <a title="Quick View" data-toggle="modal" data-target="#exampleModal" class="animate-right" href="#"><i class="ion-ios-eye-outline"></i></a>
-                                                    </div>
+                                                    <img src="assets/img/product/<%=imgname%>.jpg" alt="">
+                                                    
                                                 </div>
                                                 <div class="product-content">
                                                     <div class="product-title-price">
                                                         <div class="product-title">
-                                                            <h4><a href="product-details-6.html">WOODEN FURNITURE</a></h4>
+                                                            <h4><%=rslt.getString(1)%></a></h4>
                                                         </div>
                                                         <div class="product-price">
-                                                            <span>$110.00</span>
+                                                            <span><%=rslt.getInt(3) %></span>
                                                         </div>
                                                     </div>
                                                     <div class="product-cart-categori">
                                                         <div class="product-cart">
-                                                            <span>Furniter</span>
+                                                            <span>Electronics</span>
                                                         </div>
                                                         <div class="product-categori">
                                                             <a href="#"><i class="ion-bag"></i> Add to cart</a>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </div><%count+=1;if(count==4)break;
+                                            }
+												}
+											 catch (SQLException e) {
+											// TODO Auto-generated catch block
+											e.printStackTrace();
+											}
+										finally{
+		
+											try{
+												stmt.close();
+												}
+											catch(SQLException e)
+											{
+												e.printStackTrace();
+											}
+											}
+                                        
+                                            
+                                         %>   
+                                            
+                                         
+                                            
+                                            
+                                            
                                         </div>
-                                        <div class="col-md-3 col-lg-3 col-sm-4">
-                                            <div class="single-product">
-                                                <div class="product-img">
-                                                    <a href="#"><img src="assets/img/product/2.jpg" alt=""></a>
-                                                    <div class="product-action">
-                                                        <a title="Wishlist" class="animate-left" href="#"><i class="ion-ios-heart-outline"></i></a>
-                                                        <a title="Quick View" data-toggle="modal" data-target="#exampleModal" class="animate-right" href="#"><i class="ion-ios-eye-outline"></i></a>
-                                                    </div>
-                                                </div>
-                                                <div class="product-content">
-                                                    <div class="product-title-price">
-                                                        <div class="product-title">
-                                                            <h4><a href="product-details-6.html">WOODEN FURNITURE</a></h4>
-                                                        </div>
-                                                        <div class="product-price">
-                                                            <span>$120.00</span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="product-cart-categori">
-                                                        <div class="product-cart">
-                                                            <span>Furniter</span>
-                                                        </div>
-                                                        <div class="product-categori">
-                                                            <a href="#"><i class="ion-bag"></i> Add to cart</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3 col-lg-3 col-sm-4">
-                                            <div class="single-product">
-                                                <div class="product-img">
-                                                    <a href="#"><img src="assets/img/product/3.jpg" alt=""></a>
-                                                    <span>sale</span>
-                                                    <div class="product-action">
-                                                        <a title="Wishlist" class="animate-left" href="#"><i class="ion-ios-heart-outline"></i></a>
-                                                        <a title="Quick View" data-toggle="modal" data-target="#exampleModal" class="animate-right" href="#"><i class="ion-ios-eye-outline"></i></a>
-                                                    </div>
-                                                </div>
-                                                <div class="product-content">
-                                                    <div class="product-title-price">
-                                                        <div class="product-title">
-                                                            <h4><a href="product-details-6.html">HANDCRAFTED MUG</a></h4>
-                                                        </div>
-                                                        <div class="product-price">
-                                                            <span>$130.00</span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="product-cart-categori">
-                                                        <div class="product-cart">
-                                                            <span>Furniter</span>
-                                                        </div>
-                                                        <div class="product-categori">
-                                                            <a href="#"><i class="ion-bag"></i> Add to cart</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3 col-lg-3 col-sm-4">
-                                            <div class="single-product">
-                                                <div class="product-img">
-                                                    <a href="#"><img src="assets/img/product/4.jpg" alt=""></a>
-                                                    <div class="product-action">
-                                                        <a title="Wishlist" class="animate-left" href="#"><i class="ion-ios-heart-outline"></i></a>
-                                                        <a title="Quick View" data-toggle="modal" data-target="#exampleModal" class="animate-right" href="#"><i class="ion-ios-eye-outline"></i></a>
-                                                    </div>
-                                                </div>
-                                                <div class="product-content">
-                                                    <div class="product-title-price">
-                                                        <div class="product-title">
-                                                            <h4><a href="product-details-6.html">WOODEN FURNITURE</a></h4>
-                                                        </div>
-                                                        <div class="product-price">
-                                                            <span>$140.00</span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="product-cart-categori">
-                                                        <div class="product-cart">
-                                                            <span>Furniter</span>
-                                                        </div>
-                                                        <div class="product-categori">
-                                                            <a href="#"><i class="ion-bag"></i> Add to cart</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        
                                     </div>
                                 </div>
                             </div>
-                            <div class="tab-pane fade" id="home2" role="tabpanel">
-                                <div class="row">
-                                    <div class="product-slider-active owl-carousel">
-                                        <div class="col-md-3 col-lg-3 col-sm-4">
-                                            <div class="single-product">
-                                                <div class="product-img">
-                                                    <a href="#"><img src="assets/img/product/5.jpg" alt=""></a>
-                                                    <span>sale</span>
-                                                    <div class="product-action">
-                                                        <a title="Wishlist" class="animate-left" href="#"><i class="ion-ios-heart-outline"></i></a>
-                                                        <a title="Quick View" data-toggle="modal" data-target="#exampleModal" class="animate-right" href="#"><i class="ion-ios-eye-outline"></i></a>
-                                                    </div>
-                                                </div>
-                                                <div class="product-content">
-                                                    <div class="product-title-price">
-                                                        <div class="product-title">
-                                                            <h4><a href="product-details-6.html">WOODEN FURNITURE</a></h4>
-                                                        </div>
-                                                        <div class="product-price">
-                                                            <span>$150.00</span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="product-cart-categori">
-                                                        <div class="product-cart">
-                                                            <span>Furniter</span>
-                                                        </div>
-                                                        <div class="product-categori">
-                                                            <a href="#"><i class="ion-bag"></i> Add to cart</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3 col-lg-3 col-sm-4">
-                                            <div class="single-product">
-                                                <div class="product-img">
-                                                    <a href="#"><img src="assets/img/product/6.jpg" alt=""></a>
-                                                    <div class="product-action">
-                                                        <a title="Wishlist" class="animate-left" href="#"><i class="ion-ios-heart-outline"></i></a>
-                                                        <a title="Quick View" data-toggle="modal" data-target="#exampleModal" class="animate-right" href="#"><i class="ion-ios-eye-outline"></i></a>
-                                                    </div>
-                                                </div>
-                                                <div class="product-content">
-                                                    <div class="product-title-price">
-                                                        <div class="product-title">
-                                                            <h4><a href="product-details-6.html">WOODEN FURNITURE</a></h4>
-                                                        </div>
-                                                        <div class="product-price">
-                                                            <span>$160.00</span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="product-cart-categori">
-                                                        <div class="product-cart">
-                                                            <span>Furniter</span>
-                                                        </div>
-                                                        <div class="product-categori">
-                                                            <a href="#"><i class="ion-bag"></i> Add to cart</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3 col-lg-3 col-sm-4">
-                                            <div class="single-product">
-                                                <div class="product-img">
-                                                    <a href="#"><img src="assets/img/product/7.jpg" alt=""></a>
-                                                    <span>sale</span>
-                                                    <div class="product-action">
-                                                        <a title="Wishlist" class="animate-left" href="#"><i class="ion-ios-heart-outline"></i></a>
-                                                        <a title="Quick View" data-toggle="modal" data-target="#exampleModal" class="animate-right" href="#"><i class="ion-ios-eye-outline"></i></a>
-                                                    </div>
-                                                </div>
-                                                <div class="product-content">
-                                                    <div class="product-title-price">
-                                                        <div class="product-title">
-                                                            <h4><a href="product-details-6.html">HANDCRAFTED MUG</a></h4>
-                                                        </div>
-                                                        <div class="product-price">
-                                                            <span>$170.00</span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="product-cart-categori">
-                                                        <div class="product-cart">
-                                                            <span>Furniter</span>
-                                                        </div>
-                                                        <div class="product-categori">
-                                                            <a href="#"><i class="ion-bag"></i> Add to cart</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3 col-lg-3 col-sm-4">
-                                            <div class="single-product">
-                                                <div class="product-img">
-                                                    <a href="#"><img src="assets/img/product/8.jpg" alt=""></a>
-                                                    <div class="product-action">
-                                                        <a title="Wishlist" class="animate-left" href="#"><i class="ion-ios-heart-outline"></i></a>
-                                                        <a title="Quick View" data-toggle="modal" data-target="#exampleModal" class="animate-right" href="#"><i class="ion-ios-eye-outline"></i></a>
-                                                    </div>
-                                                </div>
-                                                <div class="product-content">
-                                                    <div class="product-title-price">
-                                                        <div class="product-title">
-                                                            <h4><a href="product-details-6.html">HANDCRAFTED MUG</a></h4>
-                                                        </div>
-                                                        <div class="product-price">
-                                                            <span>$180.00</span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="product-cart-categori">
-                                                        <div class="product-cart">
-                                                            <span>Furniter</span>
-                                                        </div>
-                                                        <div class="product-categori">
-                                                            <a href="#"><i class="ion-bag"></i> Add to cart</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="tab-pane fade" id="home3" role="tabpanel">
-                                <div class="row">
-                                    <div class="product-slider-active owl-carousel">
-                                        <div class="col-md-3 col-lg-3 col-sm-4">
-                                            <div class="single-product">
-                                                <div class="product-img">
-                                                    <a href="#"><img src="assets/img/product/9.jpg" alt=""></a>
-                                                    <span>sale</span>
-                                                    <div class="product-action">
-                                                        <a title="Wishlist" class="animate-left" href="#"><i class="ion-ios-heart-outline"></i></a>
-                                                        <a title="Quick View" data-toggle="modal" data-target="#exampleModal" class="animate-right" href="#"><i class="ion-ios-eye-outline"></i></a>
-                                                    </div>
-                                                </div>
-                                                <div class="product-content">
-                                                    <div class="product-title-price">
-                                                        <div class="product-title">
-                                                            <h4><a href="product-details-6.html">HANDCRAFTED MUG</a></h4>
-                                                        </div>
-                                                        <div class="product-price">
-                                                            <span>$190.00</span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="product-cart-categori">
-                                                        <div class="product-cart">
-                                                            <span>Furniter</span>
-                                                        </div>
-                                                        <div class="product-categori">
-                                                            <a href="#"><i class="ion-bag"></i> Add to cart</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3 col-lg-3 col-sm-4">
-                                            <div class="single-product">
-                                                <div class="product-img">
-                                                    <a href="#"><img src="assets/img/product/10.jpg" alt=""></a>
-                                                    <div class="product-action">
-                                                        <a title="Wishlist" class="animate-left" href="#"><i class="ion-ios-heart-outline"></i></a>
-                                                        <a title="Quick View" data-toggle="modal" data-target="#exampleModal" class="animate-right" href="#"><i class="ion-ios-eye-outline"></i></a>
-                                                    </div>
-                                                </div>
-                                                <div class="product-content">
-                                                    <div class="product-title-price">
-                                                        <div class="product-title">
-                                                            <h4><a href="product-details-6.html">HANDCRAFTED MUG</a></h4>
-                                                        </div>
-                                                        <div class="product-price">
-                                                            <span>$110.00</span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="product-cart-categori">
-                                                        <div class="product-cart">
-                                                            <span>Furniter</span>
-                                                        </div>
-                                                        <div class="product-categori">
-                                                            <a href="#"><i class="ion-bag"></i> Add to cart</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3 col-lg-3 col-sm-4">
-                                            <div class="single-product">
-                                                <div class="product-img">
-                                                    <a href="#"><img src="assets/img/product/11.jpg" alt=""></a>
-                                                    <span>sale</span>
-                                                    <div class="product-action">
-                                                        <a title="Wishlist" class="animate-left" href="#"><i class="ion-ios-heart-outline"></i></a>
-                                                        <a title="Quick View" data-toggle="modal" data-target="#exampleModal" class="animate-right" href="#"><i class="ion-ios-eye-outline"></i></a>
-                                                    </div>
-                                                </div>
-                                                <div class="product-content">
-                                                    <div class="product-title-price">
-                                                        <div class="product-title">
-                                                            <h4><a href="product-details-6.html">WOODEN FURNITURE</a></h4>
-                                                        </div>
-                                                        <div class="product-price">
-                                                            <span>$120.00</span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="product-cart-categori">
-                                                        <div class="product-cart">
-                                                            <span>Furniter</span>
-                                                        </div>
-                                                        <div class="product-categori">
-                                                            <a href="#"><i class="ion-bag"></i> Add to cart</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3 col-lg-3 col-sm-4">
-                                            <div class="single-product">
-                                                <div class="product-img">
-                                                    <a href="#"><img src="assets/img/product/12.jpg" alt=""></a>
-                                                    <div class="product-action">
-                                                        <a title="Wishlist" class="animate-left" href="#"><i class="ion-ios-heart-outline"></i></a>
-                                                        <a title="Quick View" data-toggle="modal" data-target="#exampleModal" class="animate-right" href="#"><i class="ion-ios-eye-outline"></i></a>
-                                                    </div>
-                                                </div>
-                                                <div class="product-content">
-                                                    <div class="product-title-price">
-                                                        <div class="product-title">
-                                                            <h4><a href="product-details-6.html">WOODEN FURNITURE</a></h4>
-                                                        </div>
-                                                        <div class="product-price">
-                                                            <span>$130.00</span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="product-cart-categori">
-                                                        <div class="product-cart">
-                                                            <span>Furniter</span>
-                                                        </div>
-                                                        <div class="product-categori">
-                                                            <a href="#"><i class="ion-bag"></i> Add to cart</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="tab-pane fade" id="home4" role="tabpanel">
-                                <div class="row">
-                                    <div class="product-slider-active owl-carousel">
-                                        <div class="col-md-3 col-lg-3 col-sm-4">
-                                            <div class="single-product">
-                                                <div class="product-img">
-                                                    <a href="#"><img src="assets/img/product/6.jpg" alt=""></a>
-                                                    <span>sale</span>
-                                                    <div class="product-action">
-                                                        <a title="Wishlist" class="animate-left" href="#"><i class="ion-ios-heart-outline"></i></a>
-                                                        <a title="Quick View" data-toggle="modal" data-target="#exampleModal" class="animate-right" href="#"><i class="ion-ios-eye-outline"></i></a>
-                                                    </div>
-                                                </div>
-                                                <div class="product-content">
-                                                    <div class="product-title-price">
-                                                        <div class="product-title">
-                                                            <h4><a href="product-details-6.html">WOODEN FURNITURE</a></h4>
-                                                        </div>
-                                                        <div class="product-price">
-                                                            <span>$140.00</span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="product-cart-categori">
-                                                        <div class="product-cart">
-                                                            <span>Furniter</span>
-                                                        </div>
-                                                        <div class="product-categori">
-                                                            <a href="#"><i class="ion-bag"></i> Add to cart</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3 col-lg-3 col-sm-4">
-                                            <div class="single-product">
-                                                <div class="product-img">
-                                                    <a href="#"><img src="assets/img/product/1.jpg" alt=""></a>
-                                                    <div class="product-action">
-                                                        <a title="Wishlist" class="animate-left" href="#"><i class="ion-ios-heart-outline"></i></a>
-                                                        <a title="Quick View" data-toggle="modal" data-target="#exampleModal" class="animate-right" href="#"><i class="ion-ios-eye-outline"></i></a>
-                                                    </div>
-                                                </div>
-                                                <div class="product-content">
-                                                    <div class="product-title-price">
-                                                        <div class="product-title">
-                                                            <h4><a href="product-details-6.html">HANDCRAFTED MUG</a></h4>
-                                                        </div>
-                                                        <div class="product-price">
-                                                            <span>$150.00</span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="product-cart-categori">
-                                                        <div class="product-cart">
-                                                            <span>Furniter</span>
-                                                        </div>
-                                                        <div class="product-categori">
-                                                            <a href="#"><i class="ion-bag"></i> Add to cart</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3 col-lg-3 col-sm-4">
-                                            <div class="single-product">
-                                                <div class="product-img">
-                                                    <a href="#"><img src="assets/img/product/10.jpg" alt=""></a>
-                                                    <span>sale</span>
-                                                    <div class="product-action">
-                                                        <a title="Wishlist" class="animate-left" href="#"><i class="ion-ios-heart-outline"></i></a>
-                                                        <a title="Quick View" data-toggle="modal" data-target="#exampleModal" class="animate-right" href="#"><i class="ion-ios-eye-outline"></i></a>
-                                                    </div>
-                                                </div>
-                                                <div class="product-content">
-                                                    <div class="product-title-price">
-                                                        <div class="product-title">
-                                                            <h4><a href="product-details-6.html">WOODEN FURNITURE</a></h4>
-                                                        </div>
-                                                        <div class="product-price">
-                                                            <span>$160.00</span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="product-cart-categori">
-                                                        <div class="product-cart">
-                                                            <span>Furniter</span>
-                                                        </div>
-                                                        <div class="product-categori">
-                                                            <a href="#"><i class="ion-bag"></i> Add to cart</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3 col-lg-3 col-sm-4">
-                                            <div class="single-product">
-                                                <div class="product-img">
-                                                    <a href="#"><img src="assets/img/product/7.jpg" alt=""></a>
-                                                    <div class="product-action">
-                                                        <a title="Wishlist" class="animate-left" href="#"><i class="ion-ios-heart-outline"></i></a>
-                                                        <a title="Quick View" data-toggle="modal" data-target="#exampleModal" class="animate-right" href="#"><i class="ion-ios-eye-outline"></i></a>
-                                                    </div>
-                                                </div>
-                                                <div class="product-content">
-                                                    <div class="product-title-price">
-                                                        <div class="product-title">
-                                                            <h4><a href="product-details-6.html">HANDCRAFTED MUG</a></h4>
-                                                        </div>
-                                                        <div class="product-price">
-                                                            <span>$170.00</span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="product-cart-categori">
-                                                        <div class="product-cart">
-                                                            <span>Furniter</span>
-                                                        </div>
-                                                        <div class="product-categori">
-                                                            <a href="#"><i class="ion-bag"></i> Add to cart</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            
+                                        
+                                    
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="shop-limited-area bg-img pt-90 pb-100" style="background-image: url(assets/img/banner/4.jpg)" data-overlay="3">
-                <div class="container">
-                    <div class="shop-limited-content text-center">
-                        <h2>Shop Limited Edition.</h2>
-                        <a class="btn-hover limited-btn" href="#">view more</a>
-                    </div>
-                </div>
-            </div>
-            <div class="product-collection-area pt-100 pb-50">
-                <div class="container">
-                    <div class="section-title text-center mb-55">
-                        <h2>New Collection</h2>
-                        <p>It is a long established fact that a reader will be distracted by the readable content of a page when look</p>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6 col-lg-4 col-xl-3">
-                            <div class="single-product mb-35">
-                                <div class="product-img">
-                                    <a href="#"><img src="assets/img/product/5.jpg" alt=""></a>
-                                    <span>sale</span>
-                                    <div class="product-action">
-                                        <a title="Wishlist" class="animate-left" href="#"><i class="ion-ios-heart-outline"></i></a>
-                                        <a title="Quick View" data-toggle="modal" data-target="#exampleModal" class="animate-right" href="#"><i class="ion-ios-eye-outline"></i></a>
-                                    </div>
-                                </div>
-                                <div class="product-content">
-                                    <div class="product-title-price">
-                                        <div class="product-title">
-                                            <h4><a href="product-details-6.html">WOODEN FURNITURE</a></h4>
-                                        </div>
-                                        <div class="product-price">
-                                            <span>$110.00</span>
-                                        </div>
-                                    </div>
-                                    <div class="product-cart-categori">
-                                        <div class="product-cart">
-                                            <span>Furniter</span>
-                                        </div>
-                                        <div class="product-categori">
-                                            <a href="#"><i class="ion-bag"></i> Add to cart</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-lg-4 col-xl-3">
-                            <div class="single-product mb-35">
-                                <div class="product-img">
-                                    <a href="#"><img src="assets/img/product/6.jpg" alt=""></a>
-                                    <div class="product-action">
-                                        <a title="Wishlist" class="animate-left" href="#"><i class="ion-ios-heart-outline"></i></a>
-                                        <a title="Quick View" data-toggle="modal" data-target="#exampleModal" class="animate-right" href="#"><i class="ion-ios-eye-outline"></i></a>
-                                    </div>
-                                </div>
-                                <div class="product-content">
-                                    <div class="product-title-price">
-                                        <div class="product-title">
-                                            <h4><a href="product-details-6.html">WOODEN FURNITURE</a></h4>
-                                        </div>
-                                        <div class="product-price">
-                                            <span>$120.00</span>
-                                        </div>
-                                    </div>
-                                    <div class="product-cart-categori">
-                                        <div class="product-cart">
-                                            <span>Furniter</span>
-                                        </div>
-                                        <div class="product-categori">
-                                            <a href="#"><i class="ion-bag"></i> Add to cart</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-lg-4 col-xl-3">
-                            <div class="single-product mb-35">
-                                <div class="product-img">
-                                    <a href="#"><img src="assets/img/product/7.jpg" alt=""></a>
-                                    <span>sale</span>
-                                    <div class="product-action">
-                                        <a title="Wishlist" class="animate-left" href="#"><i class="ion-ios-heart-outline"></i></a>
-                                        <a title="Quick View" data-toggle="modal" data-target="#exampleModal" class="animate-right" href="#"><i class="ion-ios-eye-outline"></i></a>
-                                    </div>
-                                </div>
-                                <div class="product-content">
-                                    <div class="product-title-price">
-                                        <div class="product-title">
-                                            <h4><a href="product-details-6.html">HANDCRAFTED MUG</a></h4>
-                                        </div>
-                                        <div class="product-price">
-                                            <span>$130.00</span>
-                                        </div>
-                                    </div>
-                                    <div class="product-cart-categori">
-                                        <div class="product-cart">
-                                            <span>Furniter</span>
-                                        </div>
-                                        <div class="product-categori">
-                                            <a href="#"><i class="ion-bag"></i> Add to cart</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-lg-4 col-xl-3">
-                            <div class="single-product mb-35">
-                                <div class="product-img">
-                                    <a href="#"><img src="assets/img/product/8.jpg" alt=""></a>
-                                    <div class="product-action">
-                                        <a title="Wishlist" class="animate-left" href="#"><i class="ion-ios-heart-outline"></i></a>
-                                        <a title="Quick View" data-toggle="modal" data-target="#exampleModal" class="animate-right" href="#"><i class="ion-ios-eye-outline"></i></a>
-                                    </div>
-                                </div>
-                                <div class="product-content">
-                                    <div class="product-title-price">
-                                        <div class="product-title">
-                                            <h4><a href="product-details-6.html">HANDCRAFTED MUG</a></h4>
-                                        </div>
-                                        <div class="product-price">
-                                            <span>$140.00</span>
-                                        </div>
-                                    </div>
-                                    <div class="product-cart-categori">
-                                        <div class="product-cart">
-                                            <span>Furniter</span>
-                                        </div>
-                                        <div class="product-categori">
-                                            <a href="#"><i class="ion-bag"></i> Add to cart</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-lg-4 col-xl-3">
-                            <div class="single-product mb-35">
-                                <div class="product-img">
-                                    <a href="#"><img src="assets/img/product/9.jpg" alt=""></a>
-                                    <div class="product-action">
-                                        <a title="Wishlist" class="animate-left" href="#"><i class="ion-ios-heart-outline"></i></a>
-                                        <a title="Quick View" data-toggle="modal" data-target="#exampleModal" class="animate-right" href="#"><i class="ion-ios-eye-outline"></i></a>
-                                    </div>
-                                </div>
-                                <div class="product-content">
-                                    <div class="product-title-price">
-                                        <div class="product-title">
-                                            <h4><a href="product-details-6.html">HANDCRAFTED MUG</a></h4>
-                                        </div>
-                                        <div class="product-price">
-                                            <span>$150.00</span>
-                                        </div>
-                                    </div>
-                                    <div class="product-cart-categori">
-                                        <div class="product-cart">
-                                            <span>Furniter</span>
-                                        </div>
-                                        <div class="product-categori">
-                                            <a href="#"><i class="ion-bag"></i> Add to cart</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-lg-4 col-xl-3">
-                            <div class="single-product mb-35">
-                                <div class="product-img">
-                                    <a href="#"><img src="assets/img/product/10.jpg" alt=""></a>
-                                    <span>sale</span>
-                                    <div class="product-action">
-                                        <a title="Wishlist" class="animate-left" href="#"><i class="ion-ios-heart-outline"></i></a>
-                                        <a title="Quick View" data-toggle="modal" data-target="#exampleModal" class="animate-right" href="#"><i class="ion-ios-eye-outline"></i></a>
-                                    </div>
-                                </div>
-                                <div class="product-content">
-                                    <div class="product-title-price">
-                                        <div class="product-title">
-                                            <h4><a href="product-details-6.html">WOODEN FURNITURE</a></h4>
-                                        </div>
-                                        <div class="product-price">
-                                            <span>$160.00</span>
-                                        </div>
-                                    </div>
-                                    <div class="product-cart-categori">
-                                        <div class="product-cart">
-                                            <span>Furniter</span>
-                                        </div>
-                                        <div class="product-categori">
-                                            <a href="#"><i class="ion-bag"></i> Add to cart</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-lg-4 col-xl-3">
-                            <div class="single-product mb-35">
-                                <div class="product-img">
-                                    <a href="#"><img src="assets/img/product/11.jpg" alt=""></a>
-                                    <div class="product-action">
-                                        <a title="Wishlist" class="animate-left" href="#"><i class="ion-ios-heart-outline"></i></a>
-                                        <a title="Quick View" data-toggle="modal" data-target="#exampleModal" class="animate-right" href="#"><i class="ion-ios-eye-outline"></i></a>
-                                    </div>
-                                </div>
-                                <div class="product-content">
-                                    <div class="product-title-price">
-                                        <div class="product-title">
-                                            <h4><a href="product-details-6.html">WOODEN FURNITURE</a></h4>
-                                        </div>
-                                        <div class="product-price">
-                                            <span>$170.00</span>
-                                        </div>
-                                    </div>
-                                    <div class="product-cart-categori">
-                                        <div class="product-cart">
-                                            <span>Furniter</span>
-                                        </div>
-                                        <div class="product-categori">
-                                            <a href="#"><i class="ion-bag"></i> Add to cart</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-lg-4 col-xl-3">
-                            <div class="single-product mb-35">
-                                <div class="product-img">
-                                    <a href="#"><img src="assets/img/product/12.jpg" alt=""></a>
-                                    <span>sale</span>
-                                    <div class="product-action">
-                                        <a title="Wishlist" class="animate-left" href="#"><i class="ion-ios-heart-outline"></i></a>
-                                        <a title="Quick View" data-toggle="modal" data-target="#exampleModal" class="animate-right" href="#"><i class="ion-ios-eye-outline"></i></a>
-                                    </div>
-                                </div>
-                                <div class="product-content">
-                                    <div class="product-title-price">
-                                        <div class="product-title">
-                                            <h4><a href="product-details-6.html">WOODEN FURNITURE</a></h4>
-                                        </div>
-                                        <div class="product-price">
-                                            <span>$180.00</span>
-                                        </div>
-                                    </div>
-                                    <div class="product-cart-categori">
-                                        <div class="product-cart">
-                                            <span>Furniter</span>
-                                        </div>
-                                        <div class="product-categori">
-                                            <a href="#"><i class="ion-bag"></i> Add to cart</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="blog-area pb-65">
-                <div class="container">
-                    <div class="section-title text-center mb-55">
-                        <h2> Top Stories</h2>
-                        <p>It is a long established fact that a reader will be distracted by the readable content of a page when look</p>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-4 col-md-6">
-                            <div class="single-blog mb-30">
-                                <div class="blog-img">
-                                    <a href="#"><img src="assets/img/blog/1.jpg" alt=""></a>
-                                </div>
-                                <div class="blog-info">
-                                    <h3><a href="#">Standard blog post.</a></h3>
-                                    <div class="blog-meta">
-                                        <ul>
-                                            <li>February 13</li>
-                                            <li><a href="#">Momen Bhuiyan</a></li>
-                                            <li><a href="#">4 comments</a></li>
-                                        </ul>
-                                    </div>
-                                    <p>Lorem ipsum dolor sit amet, sectetur adipising elit, sed do eimod tempor incididunt ut labore.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6">
-                            <div class="single-blog mb-30">
-                                <div class="blog-img">
-                                    <a href="#"><img src="assets/img/blog/2.jpg" alt=""></a>
-                                </div>
-                                <div class="blog-info">
-                                    <h3><a href="#">But I must explain to you.</a></h3>
-                                    <div class="blog-meta">
-                                        <ul>
-                                            <li>February 13</li>
-                                            <li><a href="#">Momen Bhuiyan</a></li>
-                                            <li><a href="#">4 comments</a></li>
-                                        </ul>
-                                    </div>
-                                    <p>Lorem ipsum dolor sit amet, sectetur adipising elit, sed do eimod tempor incididunt ut labore.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6">
-                            <div class="single-blog mb-30">
-                                <div class="blog-img">
-                                    <a href="#"><img src="assets/img/blog/3.jpg" alt=""></a>
-                                </div>
-                                <div class="blog-info">
-                                    <h3><a href="#">Lorem ipsum dolor sit.</a></h3>
-                                    <div class="blog-meta">
-                                        <ul>
-                                            <li>February 13</li>
-                                            <li><a href="#">Momen Bhuiyan</a></li>
-                                            <li><a href="#">4 comments</a></li>
-                                        </ul>
-                                    </div>
-                                    <p>Lorem ipsum dolor sit amet, sectetur adipising elit, sed do eimod tempor incididunt ut labore.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            
+            
             <footer class="footer-area gray-bg pt-100 pb-95">
                 <div class="container">
                     <div class="row">
@@ -1130,16 +260,16 @@
                             <div class="footer-widget">
                                 <div class="footer-widget-m-content text-center">
                                     <div class="footer-logo">
-                                        <a href="#"><img src="assets/img/logo/logo.png" alt=""></a>
+                                        <a href="index.jsp"><img src="assets/img/logo/logo.png" alt=""></a>
                                     </div>
                                     <div class="footer-nav">
                                         <nav>
                                             <ul>
-                                                <li><a href="#">home</a></li>
-                                                <li><a href="#">about us</a></li>
-                                                <li><a href="#">shop </a></li>
-                                                <li><a href="#"> blog </a></li>
-                                                <li><a href="#">pages </a></li>
+                                                <li><a href="index.jsp">home</a></li>
+                                                <li><a href="about-us.html">about us</a></li>
+                                                <li><a href="shop-grid-view-5-col.jsp">shop </a></li>
+                                               
+                                               
                                             </ul>
                                         </nav>
                                     </div>
@@ -1151,9 +281,9 @@
                             <div class="footer-widget f-right">
                                 <div class="footer-widget-r-content">
                                     <ul>
-                                        <li><span>Phone :</span> +00 123 54 0056</li>
-                                        <li><span>Email : </span> <a href="#">neha@gmail.com</a></li>
-                                        <li><span>Address :</span> Dhaka Bangladesh</li>
+                                        <li><span>Phone :</span> +1416-471-0117</li>
+                                        <li><span>Email : </span> <a href="#">nittingarg21@gmail.com</a></li>
+                                        <li><span>Address :</span> Hell</li>
                                     </ul>
                                 </div>
                             </div>
@@ -1262,26 +392,20 @@
                 </div>
                 <div id="menu" class="text-left">
                     <ul>
-                                            <li><a href="#">home</a></li>
+                                            <li><a href="index.jsp">home</a></li>
                                             <li><a href="about-us.html">about us</a></li>
-                                            <li><a href="shop-grid-view-5-col.html">shop</a></li>
+                                            <li><a href="shop-grid-view-5-col.jsp">shop</a></li>
                                             <li><a href="#">pages</a>
                                                 <ul class="dropdown">
                                                     <li><a href="about-us.html">about us</a></li>
-                                                    <li><a href="cart.html">cart</a></li>
-                                                    <li><a href="checkout.html">checkout</a></li>
-                                                    <li><a href="wishlist.html">wishlist</a></li>
+                                                    <li><a href="cart.jsp">cart</a></li>
+                                                    <li><a href="checkout.jsp">checkout</a></li>
                                                     <li><a href="contact.html">contact</a></li>
-                                                    <li><a href="login.html">login</a></li>
-                                                    <li><a href="register.html">register</a></li>
+                                                    <li><a href="login.jsp">login</a></li>
+                                                    <li><a href="register.jsp">register</a></li>
                                                 </ul>
                                             </li>
-                                            <li><a href="#">blog</a>
-                                                <ul class="dropdown">
-                                                    <li><a href="blog.html">blog </a></li>
-                                                    <li><a href="blog-details.html">blog details</a></li>
-                                                </ul>
-                                            </li>
+                                            
                                             <li><a href="contact.html">contact</a></li>
                                         </ul>
                 </div>

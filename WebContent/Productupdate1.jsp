@@ -32,38 +32,14 @@
         <![endif]-->
         <!-- header start -->
         <div class="wrapper">
-            <!-- Newsletter Popup Start -->
-            <div class="popup_wrapper hidden-sm hidden-xs">
-                <div class="test">
-                    <span class="popup_off">Close</span>
-                    <div class="subscribe_area text-center">
-                        <h2>Newsletter</h2>
-                        <p>Subscribe to the Neha mailing list to receive updates on new arrivals, special offers and other discount information.</p>
-                        <div id="mc_embed_signup" class="subscribe-bottom">
-                            <form action="http://devitems.us11.list-manage.com/subscribe/post?u=6bbb9b6f5827bd842d9640c82&amp;id=05d85f18ef" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-                                <div id="mc_embed_signup_scroll" class="mc-form">
-                                    <input type="email" value="" name="EMAIL" class="email" placeholder="Enter your email address" required>
-                                    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-                                    <div class="mc-news" aria-hidden="true"><input type="text" name="b_6bbb9b6f5827bd842d9640c82_05d85f18ef" tabindex="-1" value=""></div>
-                                    <div class="clear-2"><input type="submit" value="subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
-                                </div>
-                            </form>
-                        </div>
-                        <div class="subscribe-bottom mt-15">
-                            <input type="checkbox" id="newsletter-permission">
-                            <label for="newsletter-permission">Don't show this popup again</label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Newsletter Popup End -->
+            
             <header class="pl-155 pr-155 intelligent-header">
                 <div class="header-area header-area-2">
                     <div class="container-fluid p-0">
                         <div class="row no-gutters">
                             <div class="col-lg-3 col-md-6 col-6">
                                 <div class="logo">
-                                    <a href="index.html"><img src="assets/img/logo/logo.png" alt="" /></a>
+                                    <a href="index.jsp"><img src="assets/img/logo/logo.png" alt="" /></a>
                                 </div>
                             </div>
                             <div class="col-lg-6 menu-none-block menu-center">
@@ -77,10 +53,10 @@
                                                 <ul class="dropdown">
                                                     <li><a href="about-us.html">about us</a></li>
                                                     <li><a href="cart.html">cart</a></li>
-                                                    <li><a href="checkout.html">checkout</a></li>
+                                                    <li><a href="checkout.jsp">checkout</a></li>
                                                     <li><a href="wishlist.html">wishlist</a></li>
                                                     <li><a href="contact.html">contact</a></li>
-                                                    <li><a href="login.html">login</a></li>
+                                                    <li><a href="login.jsp">login</a></li>
                                                     <li><a href="register.html">register</a></li>
                                                 </ul>
                                             </li>
@@ -120,7 +96,7 @@
                                         <ul class="menu-overflow">
                                             <li><a href="#">HOME</a>
                                                 <ul>
-                                                    <li><a href="index.html">furniture</a></li>
+                                                    <li><a href="index.jsp">furniture</a></li>
                                                     <li><a href="index-electronics.html">electronics</a></li>
                                                     <li><a href="index-fashion.html">fashion</a></li>
                                                     <li><a href="index-jewellery.html">jewellery</a></li>
@@ -132,10 +108,10 @@
                                                 <ul>
                                                     <li><a href="about-us.html">about us</a></li>
                                                     <li><a href="cart.html">cart</a></li>
-                                                    <li><a href="checkout.html">checkout</a></li>
+                                                    <li><a href="checkout.jsp">checkout</a></li>
                                                     <li><a href="wishlist.html">wishlist</a></li>
                                                     <li><a href="contact.html">contact</a></li>
-                                                    <li><a href="login.html">login</a></li>
+                                                    <li><a href="login.jsp">login</a></li>
                                                     <li><a href="register.html">register</a></li>
                                                 </ul>
                                             </li>
@@ -297,7 +273,7 @@
                                     <li><a href="#">Default welcome msg!</a></li>
                                     <li><a href="register.html">register</a></li>
                                     <li><a href="wishlist.html">My Wish List</a></li>
-                                    <li><a href="login.html">Sign In </a></li>
+                                    <li><a href="login.jsp">Sign In </a></li>
                                 </ul>
                             </div>
                         </div>
@@ -321,7 +297,7 @@
                     <div class="row">
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <h1 class="cart-heading">Product</h1>
-                            <form action="#">
+                            <form action="removeproduct">
                                 <div class="table-content table-responsive">
                                     <table>
                                         <thead>
@@ -334,28 +310,35 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                        
+										
                                         <%String name= (String)request.getAttribute("category1");
                                         //(String)request.getParameter("category1");
-                                        System.out.println(request.getParameter("category1"));
+ 										//String category2 ;
+ 										request.setAttribute("category2", name);
+ 										System.out.println(name);
                                         Connection  con = DbConnection1.dbConnection("mssql");
                                         PreparedStatement stmt  =null;
 										ResultSet rslt = null;
-									    if(name.equals("electronics"))
+										int count = 1;
+									     if(name.equals("electronics"))
                                         {
                                         	try {
 												stmt =con.prepareStatement("select * from electronics");
 												rslt = stmt.executeQuery();
 												if(rslt.next()){}
-												
-												do{%><tr>
-                                                <td class="product-remove"><a href="#"><i class="ion-android-close"></i></a></td>
+											//	int rproduct = 1;
+											%><input type="hidden" value="electronics" name="category2">
+												<%do{%><tr>
+                                                <td class="product-remove"><button type="submit" name="rproduct" value="<%=rslt.getString(1)%>" class="default-btn floatright">Remove</button>
+                                               </td>
                                                 
                                                 <td class="product-name"><%=rslt.getString(1)%></td>
                                                 
                                                 <td class="product-quantity">
                                                     <input value="<%=rslt.getString(2)%>" type="number">
                                                 </td>
-                                                <td class="product-price"><span class="amount"><%=rslt.getString(3) %></span></td>
+                                                <td class="product-price"><span class="amount"><%=rslt.getInt(3) %></span></td>
            
                                                 
                                             </tr><%}while(rslt.next());
@@ -380,7 +363,8 @@
 												stmt =con.prepareStatement("select * from clothes");
 												rslt = stmt.executeQuery();
 												if(rslt.next()){}
-												
+												%><input type="hidden" value="clothes" name="category2">
+												<%
 												do{%><tr>
                                                 <td class="product-remove"><a href="#"><i class="ion-android-close"></i></a></td>
                                                 
@@ -389,7 +373,7 @@
                                                 <td class="product-quantity">
                                                     <input value="<%=rslt.getString(2)%>" type="number">
                                                 </td>
-                                                <td class="product-price"><span class="amount"><%=rslt.getString(3) %></span></td>
+                                                <td class="product-price"><span class="amount"><%=rslt.getInt(3) %></span></td>
                                                 
                                             </tr><%}while(rslt.next());
 											} catch (SQLException e) {
@@ -410,10 +394,11 @@
                                         else if(name.equals("furniture"))
                                         {
                                         	try {
-												stmt =con.prepareStatement("select * from furtinure");
+												stmt =con.prepareStatement("select * from furniture");
 												rslt = stmt.executeQuery();
 												if(rslt.next()){}
-												
+												%><input type="hidden" value="furniture" name="category2">
+												<%
 												do{%><tr>
                                                 <td class="product-remove"><a href="#"><i class="ion-android-close"></i></a></td>
                                                 
@@ -422,7 +407,7 @@
                                                 <td class="product-quantity">
                                                     <input value="<%=rslt.getString(2)%>" type="number">
                                                 </td>
-                                                <td class="product-price"><span class="amount"><%=rslt.getString(3) %></span></td>
+                                                <td class="product-price"><span class="amount"><%=rslt.getInt(3) %></span></td>
                                                 
                                             </tr><%}while(rslt.next());
 											} catch (SQLException e) {
@@ -439,6 +424,7 @@
 												e.printStackTrace();
 											}
 											}
+                                        
                                         }
                                         else if(name.equals("footwear"))
                                         {
@@ -446,7 +432,8 @@
 												stmt =con.prepareStatement("select * from footwear");
 												rslt = stmt.executeQuery();
 												if(rslt.next()){}
-												
+												%><input type="hidden" value="footwear" name="category2">
+												<%
 												do{%><tr>
                                                 <td class="product-remove"><a href="#"><i class="ion-android-close"></i></a></td>
                                                 
@@ -455,7 +442,7 @@
                                                 <td class="product-quantity">
                                                     <input value="<%=rslt.getString(2)%>" type="number">
                                                 </td>
-                                                <td class="product-price"><span class="amount"><%=rslt.getString(3) %></span></td>
+                                                <td class="product-price"><span class="amount"><%=rslt.getInt(3) %></span></td>
                                                 
                                             </tr><%}while(rslt.next());
 											} catch (SQLException e) {
@@ -472,18 +459,13 @@
 												e.printStackTrace();
 											}
 											}
+                                        
+                                        }
+                                        else
+                                        {
                                         }%>
-                                            <tr>
-                                                <td class="product-remove"><a href="#"><i class="ion-android-close"></i></a></td>
-                                                
-                                                <td class="product-name"><a href="#">Wooden Furniture </a></td>
-                                                
-                                                <td class="product-quantity">
-                                                    <input value="1" type="number">
-                                                </td>
-                                                <td class="product-price"><span class="amount">$165.00</span></td>
-                                                
-                                            </tr>
+                                        
+                                           
                                         </tbody>
                                         
                                     </table>
@@ -523,7 +505,7 @@
                                     <div class="footer-nav">
                                         <nav>
                                             <ul>
-                                                <li><a href="index.html">home</a></li>
+                                                <li><a href="index.jsp">home</a></li>
                                                 <li><a href="about-us.html">about us</a></li>
                                                 <li><a href="shop-grid-view-sidebar.html">shop </a></li>
                                                 <li><a href="blog-left-sidebar.html"> blog </a></li>

@@ -35,6 +35,7 @@ public class LoginController extends HttpServlet {
 		else
 			{
 			UsersTable.insertRecord(username,password,fname,lname,phone,con);
+		//	UsersTable.usertable(username,con);
 				res.sendRedirect("Loggedin.jsp");
 			}
 		}

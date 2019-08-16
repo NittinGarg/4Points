@@ -16,9 +16,11 @@ public class productremove extends HttpServlet{
 	public  void doMethod(HttpServletRequest req, HttpServletResponse res)throws IOException, ServletException, ClassNotFoundException, SQLException
 	{
 		
-		String category = req.getParameter("category1");
+		String category = req.getParameter("category2");
+		String qnum = req.getParameter("quantity_update");
 		String pname = req.getParameter("rproduct");
 		System.out.println(category);
+		System.out.println(qnum);
 	//	String Btn = req.getParameter("checkout");
 //		String seller = req.getParameter("seller");
 		
@@ -27,25 +29,30 @@ public class productremove extends HttpServlet{
 		if(category.equals("electronics"))
 		{
 			UsersTable.deleteelectronics(pname,con);
-			res.sendRedirect("Productupdate1.jsp");
+			req.setAttribute("category1", category);
+			req.getRequestDispatcher("Productupdate.jsp").forward(req, res);
+		//	res.sendRedirect("Productupdate.jsp");
 		}	
 		
 		else if(category.equals("clothes"))
 		{
 			UsersTable.deleteclothes(pname,con);
-			res.sendRedirect("Productupdate1.jsp");
+			req.setAttribute("category1", category);
+			req.getRequestDispatcher("Productupdate.jsp").forward(req, res);
 		}
 		
 		else if(category.equals("footwear"))
 		{
 			UsersTable.deletefootwear(pname,con);
-			res.sendRedirect("Productupdate1.jsp");
+			req.setAttribute("category1", category);
+			req.getRequestDispatcher("Productupdate.jsp").forward(req, res);
 		}
 		
 		else if(category.equals("furniture"))
 		{
 			UsersTable.deletefurniture(pname,con);
-			res.sendRedirect("Productupdate1.jsp");
+			req.setAttribute("category1", category);
+			req.getRequestDispatcher("Productupdate.jsp").forward(req, res);
 		}
 	}
 	

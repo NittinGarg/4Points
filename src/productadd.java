@@ -19,6 +19,8 @@ public class productadd extends HttpServlet{
 		String pquantity = req.getParameter("quantity");
 		String pprice = req.getParameter("price");
 		String category = req.getParameter("product");
+		int pquantity1 = Integer.parseInt(pquantity);
+		int pprice1 = Integer.parseInt(pprice);
 		System.out.println(category);
 	//	String Btn = req.getParameter("checkout");
 //		String seller = req.getParameter("seller");
@@ -27,25 +29,25 @@ public class productadd extends HttpServlet{
 		
 		if(category.equals("electronics"))
 		{
-			UsersTable.insertelectronics(pname,pquantity,pprice,con);
+			UsersTable.insertelectronics(pname,pquantity1,pprice1,con);
 			res.sendRedirect("SelectCategory1.jsp");
 		}	
 		
 		else if(category.equals("clothes"))
 		{
-			UsersTable.insertclothes(pname,pquantity,pprice,con);
+			UsersTable.insertclothes(pname,pquantity1,pprice1,con);
 			res.sendRedirect("SelectCategory1.jsp");
 		}
 		
 		else if(category.equals("footwear"))
 		{
-			UsersTable.insertfootwear(pname,pquantity,pprice,con);
+			UsersTable.insertfootwear(pname,pquantity1,pprice1,con);
 			res.sendRedirect("SelectCategory1.jsp");
 		}
 		
 		else if(category.equals("furniture"))
 		{
-			UsersTable.insertfurniture(pname,pquantity,pprice,con);
+			UsersTable.insertfurniture(pname,pquantity1,pprice1,con);
 			res.sendRedirect("SelectCategory1.jsp");
 		}
 	}

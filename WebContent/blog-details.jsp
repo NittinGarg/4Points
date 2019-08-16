@@ -82,12 +82,7 @@
                                                     <li><a href="register.html">register</a></li>
                                                 </ul>
                                             </li>
-                                            <li><a href="#">blog</a>
-                                                <ul class="dropdown">
-                                                    <li><a href="blog.html">blog </a></li>
-                                                    <li><a href="blog-details.html">blog details</a></li>
-                                                </ul>
-                                            </li>
+                                            
                                             <li><a href="contact.html">contact</a></li>
                                         </ul>
                                     </nav>

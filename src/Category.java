@@ -17,6 +17,7 @@ public class Category extends HttpServlet{
 
 	public  void doMethod(HttpServletRequest req, HttpServletResponse res)throws IOException, ServletException, ClassNotFoundException, SQLException
 	{
+		
 		String category = req.getParameter("category1");
 		String Pbtn = req.getParameter("Add1");
 		if(Pbtn.equals("Add"))

@@ -16,6 +16,7 @@ public class LoginConfirm extends HttpServlet{
 	public  void doMethod(HttpServletRequest req, HttpServletResponse res)throws IOException, ServletException, ClassNotFoundException, SQLException
 	{
 		String UserName = req.getParameter("user-name");
+		
 		String Password = req.getParameter("user-password");
 		String user = req.getParameter("user");
 	//	String Btn = req.getParameter("checkout");
@@ -33,8 +34,8 @@ public class LoginConfirm extends HttpServlet{
 		
 			if(UserName.equals("Admin"))
 			{
-				PrintWriter out = res.getWriter();
-				res.sendRedirect("Admin.jsp");
+				req.setAttribute("user-name", UserName);
+				req.getRequestDispatcher("Admin.jsp").forward(req, res);
 			}
 	//		else if(Btn.equals("Login"))
 		//	{
@@ -42,7 +43,9 @@ public class LoginConfirm extends HttpServlet{
 		//	}
 			else
 			{
-				res.sendRedirect("Loggedin.jsp");
+				req.setAttribute("user-name", UserName);
+				req.getRequestDispatcher("Loggedin.jsp").forward(req, res);
+			
 			}
 			
 		}

@@ -39,6 +39,39 @@ public class UsersTable {
 		
 	}
 	
+	public static void cart(String username, String productname, int productprice, int productquantity, String productcat, Connection conn)	{
+		PreparedStatement stmt  =null;
+
+		try {
+			stmt =conn.prepareStatement("insert into addtocart (username, productname, productprice, productquantity, productcat)values (?,?,?,?,?)");
+			
+			stmt.setString(1, username);
+			stmt.setString(2, productname);
+			stmt.setInt(3, productprice);
+			stmt.setInt(4, productquantity);
+
+			stmt.setString(5, productcat);
+			stmt.executeUpdate();
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		finally{
+			
+			try{
+				stmt.close();
+			}
+			catch(SQLException e)
+			{
+				e.printStackTrace();
+			}
+		}
+		
+		
+		
+	}
+	
 	public static void insertSRecord(String username, String password, String firstname, String lastname, String contactnumber, String gid, Connection conn)	{
 		PreparedStatement stmt  =null;
 
@@ -72,15 +105,15 @@ public class UsersTable {
 		
 	}
 	
-	public static void insertelectronics(String name, String quantity, String price, Connection conn)	{
+	public static void insertelectronics(String name, int quantity, int price, Connection conn)	{
 		PreparedStatement stmt  =null;
 
 		try {
 			stmt =conn.prepareStatement("insert into electronics (name, quantity, price)values (?,?,?)");
 			
 			stmt.setString(1, name);
-			stmt.setString(2, quantity);
-			stmt.setString(3, price);
+			stmt.setInt(2, quantity);
+			stmt.setInt(3, price);
 			
 			stmt.executeUpdate();
 
@@ -103,15 +136,15 @@ public class UsersTable {
 		
 	}
 	
-	public static void insertfurniture(String name, String quantity, String price, Connection conn)	{
+	public static void insertfurniture(String name, int quantity, int price, Connection conn)	{
 		PreparedStatement stmt  =null;
 
 		try {
 			stmt =conn.prepareStatement("insert into furniture (name, quantity, price)values (?,?,?)");
 			
 			stmt.setString(1, name);
-			stmt.setString(2, quantity);
-			stmt.setString(3, price);
+			stmt.setInt(2, quantity);
+			stmt.setInt(3, price);
 			
 			stmt.executeUpdate();
 
@@ -135,15 +168,15 @@ public class UsersTable {
 	}
 	
 	
-	public static void insertfootwear(String name, String quantity, String price, Connection conn)	{
+	public static void insertfootwear(String name, int quantity, int price, Connection conn)	{
 		PreparedStatement stmt  =null;
 
 		try {
 			stmt =conn.prepareStatement("insert into footwear (name, quantity, price)values (?,?,?)");
 			
 			stmt.setString(1, name);
-			stmt.setString(2, quantity);
-			stmt.setString(3, price);
+			stmt.setInt(2, quantity);
+			stmt.setInt(3, price);
 			
 			stmt.executeUpdate();
 
@@ -167,15 +200,15 @@ public class UsersTable {
 	}
 	
 	
-	public static void insertclothes(String name, String quantity, String price, Connection conn)	{
+	public static void insertclothes(String name, int quantity, int price, Connection conn)	{
 		PreparedStatement stmt  =null;
 
 		try {
 			stmt =conn.prepareStatement("insert into clothes (name, quantity, price)values (?,?,?)");
 			
 			stmt.setString(1, name);
-			stmt.setString(2, quantity);
-			stmt.setString(3, price);
+			stmt.setInt(2, quantity);
+			stmt.setInt(3, price);
 			
 			stmt.executeUpdate();
 
@@ -318,6 +351,118 @@ public class UsersTable {
 	}
 	
 	
+	public static void updatefootwear(String name, int quantity, int price, Connection conn)	{
+		PreparedStatement stmt  =null;
+
+		try {
+			stmt =conn.prepareStatement("update footwear set quantity=?, price=? where name=?");
+			
+			stmt.setInt(1, quantity);
+			stmt.setInt(2, price);
+			stmt.setString(3, name);
+			
+			stmt.executeUpdate();
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		finally{
+			
+			try{
+				stmt.close();
+			}
+			catch(SQLException e)
+			{
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	public static void updateclothes(String name, int quantity, int price, Connection conn)	{
+		PreparedStatement stmt  =null;
+
+		try {
+			stmt =conn.prepareStatement("update clothes set quantity=?, price=? where name=?");
+			
+			stmt.setInt(1, quantity);
+			stmt.setInt(2, price);
+			stmt.setString(3, name);
+			
+			stmt.executeUpdate();
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		finally{
+			
+			try{
+				stmt.close();
+			}
+			catch(SQLException e)
+			{
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	public static void updatefurniture(String name, int quantity, int price, Connection conn)	{
+		PreparedStatement stmt  =null;
+
+		try {
+			stmt =conn.prepareStatement("update furniture set quantity=?, price=? where name=?");
+			
+			stmt.setInt(1, quantity);
+			stmt.setInt(2, price);
+			stmt.setString(3, name);
+			
+			stmt.executeUpdate();
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		finally{
+			
+			try{
+				stmt.close();
+			}
+			catch(SQLException e)
+			{
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	public static void updateelectronics(String name, int quantity, int price, Connection conn)	{
+		PreparedStatement stmt  =null;
+
+		try {
+			stmt =conn.prepareStatement("update electronics set quantity=?, price=? where name=?");
+			
+			stmt.setInt(1, quantity);
+			stmt.setInt(2, price);
+			stmt.setString(3, name);
+			
+			stmt.executeUpdate();
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		finally{
+			
+			try{
+				stmt.close();
+			}
+			catch(SQLException e)
+			{
+				e.printStackTrace();
+			}
+		}
+	}
+	
 	
 	public static String verifyuser(String username, String password, Connection conn)	{
 		PreparedStatement stmt  =null;
@@ -454,6 +599,34 @@ public class UsersTable {
 			stmt.setString(6, Answer);
 	
 			stmt.executeUpdate();
+			
+			} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		finally{
+			
+			try{
+				stmt.close();
+			}
+			catch(SQLException e)
+			{
+				e.printStackTrace();
+			}
+		}
+		
+	}
+	
+	public static void usertable(String name, Connection conn)	{
+		PreparedStatement stmt  =null;
+		
+		try {
+			stmt =conn.prepareStatement("create table ? (id varchar(20))");
+			
+			stmt.setString(1, name);
+			
+	
+			stmt.executeQuery();
 			
 			} catch (SQLException e) {
 			// TODO Auto-generated catch block
